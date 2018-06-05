@@ -12,12 +12,14 @@ class MyNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let navigationBar = UINavigationBar.appearance()
+        navigationBar.theme_tintColor = "colors.black"
+//        navigationBar.setBackgroundImage(UIImage(named: "navigation_background" + (UserDefaults.standard.bool(forKey: isNight) ? "_night" : "")), for: .default)
     }
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         if viewControllers.count > 0 {
             viewController.hidesBottomBarWhenPushed = true
-            viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named:"lefterbackicon_titlebar_24x24_  "), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(navigationBack))
+            viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named:"lefterbackicon_titlebar_24x24_"), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(navigationBack))
         }
         super.pushViewController(viewController, animated: true)
         print(viewController)
