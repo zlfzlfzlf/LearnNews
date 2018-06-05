@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C031B9B20C650F8007BCF6F /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C031B9A20C650F8007BCF6F /* TestViewController.swift */; };
 		6C04149E209C1B9B0059AB2D /* NetworkTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C04149D209C1B9B0059AB2D /* NetworkTool.swift */; };
 		6C213DD820A1651A007F2B0F /* MyOtherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C213DD620A1651A007F2B0F /* MyOtherCell.swift */; };
 		6C213DD920A1651A007F2B0F /* MyOtherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C213DD720A1651A007F2B0F /* MyOtherCell.xib */; };
@@ -66,6 +67,7 @@
 		14685B02F72D28A0868C99DB /* Pods_NewsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4107F377687D58580587B946 /* Pods_NewsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65836102F0857B5F72256633 /* Pods-News.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-News.release.xcconfig"; path = "Pods/Target Support Files/Pods-News/Pods-News.release.xcconfig"; sourceTree = "<group>"; };
+		6C031B9A20C650F8007BCF6F /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		6C04149D209C1B9B0059AB2D /* NetworkTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTool.swift; sourceTree = "<group>"; };
 		6C213DD620A1651A007F2B0F /* MyOtherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOtherCell.swift; sourceTree = "<group>"; };
 		6C213DD720A1651A007F2B0F /* MyOtherCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyOtherCell.xib; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 				6C65BB4E20BFF3400053829B /* MoreLoginViewController.swift */,
 				6C65BB4F20BFF3400053829B /* MoreLoginViewController.xib */,
 				6CB0F65320C1386E0074E98B /* SettingViewController.swift */,
+				6C031B9A20C650F8007BCF6F /* TestViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -670,6 +673,7 @@
 				6CC3DB4420A442B200DF3663 /* UIView+Extension.swift in Sources */,
 				942DCF691F602220001AD160 /* MyTabBarController.swift in Sources */,
 				6CB0F65420C1386E0074E98B /* SettingViewController.swift in Sources */,
+				6C031B9B20C650F8007BCF6F /* TestViewController.swift in Sources */,
 				942DCF6E1F602220001AD160 /* VideoViewController.swift in Sources */,
 				942DCF701F6024B7001AD160 /* MyTabBar.swift in Sources */,
 				942DCF661F602220001AD160 /* HomeViewController.swift in Sources */,
