@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class SettingCell: UITableViewCell, RegistterCellOrNib {
 
@@ -54,4 +55,33 @@ class SettingCell: UITableViewCell, RegistterCellOrNib {
         // Configure the view for the selected state
     }
     
+}
+
+extension SettingCell {
+    func calculateDiskCashSize() {
+        let cach = KingfisherManager.shared.cache
+        cach.calculateDiskCacheSize { (size) in
+            let sizeM = Double(size) / 1024 / 1024
+            self.rightTitleLabel.text = String(format: "%.2fM", sizeM)
+        }
+        
+    }
+    func clearCacheAlertController() {
+        let alertController = UIAlertController(title: "确定清除所有缓存？问答草稿、离线下载及图片均会被清除", message: nil, preferredStyle: .actionSheet)
+        let cancelBtn = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        let SureBtn = UIAlertAction(title: "确定", style: .default) { (_) in
+            let cach = KingfisherManager.shared.cache
+            cach.clearDiskCache()
+            cach.clearMemoryCache()
+            cach.cleanExpiredDiskCache()
+            self.rightTitleLabel.text = "0.00M"
+            
+        }
+        
+        alertController.addAction(cancelBtn)
+        alertController.addAction(SureBtn)
+    UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
+        
+        
+    }
 }

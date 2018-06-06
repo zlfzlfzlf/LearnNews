@@ -109,6 +109,21 @@ extension SettingViewController {
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let cell = tableView.cellForRow(at: indexPath) as! SettingCell
+        
+        switch indexPath.section {
+        case 0:
+            switch indexPath.row {
+            case 0:
+              cell.clearCacheAlertController()
+            default:
+                break
+            }
+        case 1:
+            print("456")
+           default:
+            break
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -116,6 +131,11 @@ extension SettingViewController {
         let cell = tableView.ym_dequeueReusableCell(indexPath: indexPath) as SettingCell
         let rows = sections[indexPath.section]
         cell.setting = rows[indexPath.row]
+        if indexPath.section == 0 && indexPath.row == 0 {
+            cell.calculateDiskCashSize()
+        }else {
+            
+        }
         return cell
         
     }
