@@ -20,7 +20,7 @@ class SettingViewController: UITableViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        print(NSHomeDirectory())
         setupUI()
         test()
 //        let numbersCompound = [[1,2,3],[4,5,6]];
@@ -34,38 +34,6 @@ class SettingViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
-
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return sections.count
-//    }
-//
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        let rows = sections[section]
-//        return rows.count
-//    }
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: true)
-//    }
-//
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//
-//        let cell = tableView.ym_dequeueReusableCell(indexPath: indexPath) as SettingCell
-//        let rows = sections[indexPath.section]
-//        cell.setting = rows[indexPath.row]
-//        return cell
-//
-//    }
-//    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 10
-//    }
-//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let view = UIView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 10))
-//        view.backgroundColor = UIColor.globalBackgroundColo()
-//        return view
-//
-//    }
 
 }
 
@@ -93,7 +61,7 @@ extension SettingViewController {
         sections = cellPlist.flatMap({ section in
             (section as! [Any]).flatMap({ settingModel.deserialize(from: $0 as? [String: Any])! })
         })
-        print(cellPlist)
+//        print(cellPlist)
     }
 }
 
@@ -116,11 +84,27 @@ extension SettingViewController {
             switch indexPath.row {
             case 0:
               cell.clearCacheAlertController()
+            case 1:
+              cell.setFontAlterController()
+            case 3:
+                cell.setupNetworkAlertController()
+            case 4:
+                cell.setupPlayNoticeAlertController()
             default:
                 break
             }
+            
         case 1:
-            print("456")
+            switch indexPath.row {
+            case 0:
+                print(indexPath.row)
+            case 1:
+                print(indexPath.row)
+    
+            default:
+                break
+            }
+       
            default:
             break
         }
@@ -131,10 +115,39 @@ extension SettingViewController {
         let cell = tableView.ym_dequeueReusableCell(indexPath: indexPath) as SettingCell
         let rows = sections[indexPath.section]
         cell.setting = rows[indexPath.row]
-        if indexPath.section == 0 && indexPath.row == 0 {
-            cell.calculateDiskCashSize()
-        }else {
+//        if indexPath.section == 0 && indexPath.row == 0 {
+//            cell.calculateDiskCashSize()
+//        }else  {
+//
+//        }
+        switch indexPath.section {
+        case 0:
+            switch indexPath.row {
+            case 0:
+                cell.calculateDiskCashSize()
+            case 3:
+                cell.rightTitleLabel.text = "最佳状态（图片下载）"
+            case 4:
+                cell.rightTitleLabel.text = "提醒一次"
+            default:
+                break
+            }
             
+        case 1:
+            switch indexPath.row {
+            case 0:
+                print(indexPath.row)
+            case 1:
+                print(indexPath.row)
+            case 2:
+                cell.rightTitleLabel.text = "1.3.3"
+                
+            default:
+                break
+            }
+            
+        default:
+            break
         }
         return cell
         
