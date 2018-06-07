@@ -13,6 +13,12 @@ import HandyJSON
 
 
 protocol NetworkToolProtocol {
+    // MARK: - --------------------------------- 首页 home  ---------------------------------
+    // MARK: 首页顶部新闻标题的数据
+    
+//    static func loadHomeNewsTitleData(completionHandler: @escaping (_ newsTitles: [String]) -> ())
+    static func loadHomeNewsTitleData(completionHandler: (_ newsTitles: [HomeNewsTitle]) -> ())
+    
     // MARK: 我的界面 cell 的数据
     static func loadMyCellData(completionHandler: @escaping (_ sections: [[MyCellModel]]) -> ())
     //我的关注数据
@@ -20,6 +26,33 @@ protocol NetworkToolProtocol {
 //    static func loadMyConcern()
 }
 extension NetworkToolProtocol{
+
+    static func loadHomeNewsTitleData(completionHandler: (_ newsTitles: [HomeNewsTitle]) -> ()){
+        let url = Base_URL + "/article/category/get_subscribed/v1/?"
+        let params = ["device_id": device_id,
+                      "iid": iid]
+        Alamofire.request(url, parameters: params).responseJSON { (response) in
+            guard response.result.isSuccess else {
+                return
+            }
+            if let value = response.result.value {
+                let json = JSON(value)
+                guard json["message"] == "success" else {return}
+                if let dataDict = json["data"].dictionary {
+                    if let datas = dataDict["data"]?.arrayObject {
+                        var titles = [HomeNewsTitle]()
+                        titles.append(HomeNewsTitle.deserialize(from: "{\"category\": \"\", \"name\": \"推荐\"}")!)
+                     var bb = HomeNewsTitle.deserialize(from: $0 as? Dictionary)
+                        titles += datas.flatMap()
+                    }
+                }
+            }
+            
+        }
+      
+        
+    }
+    
     static func loadMyCellData(completionHandler: @escaping (_ sections: [[MyCellModel]]) -> ()){
         let url = Base_URL + "/user/tab/tabs/?"
         let params = ["device_id": device_id]

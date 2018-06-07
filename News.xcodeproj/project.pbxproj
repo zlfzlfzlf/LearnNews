@@ -30,6 +30,7 @@
 		6CF5D3F5209AD91600A75A18 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF5D3F4209AD91600A75A18 /* Const.swift */; };
 		6CF5D3F8209ADC5E00A75A18 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF5D3F7209ADC5E00A75A18 /* UIColor+Extension.swift */; };
 		6CF92CA920C93FC900BC6A40 /* OfflineDownloadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF92CA820C93FC900BC6A40 /* OfflineDownloadController.swift */; };
+		6CF92CAB20C9442D00BC6A40 /* HomeNewsTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF92CAA20C9442D00BC6A40 /* HomeNewsTitle.swift */; };
 		6CFADFF220B40286003CC376 /* MyTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFADFF120B40286003CC376 /* MyTheme.swift */; };
 		6CFADFF620B409D2003CC376 /* default_theme.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6CFADFF420B409D2003CC376 /* default_theme.plist */; };
 		6CFADFF720B409D2003CC376 /* night_theme.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6CFADFF520B409D2003CC376 /* night_theme.plist */; };
@@ -95,6 +96,7 @@
 		6CF5D3F4209AD91600A75A18 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		6CF5D3F7209ADC5E00A75A18 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		6CF92CA820C93FC900BC6A40 /* OfflineDownloadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineDownloadController.swift; sourceTree = "<group>"; };
+		6CF92CAA20C9442D00BC6A40 /* HomeNewsTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNewsTitle.swift; sourceTree = "<group>"; };
 		6CFADFF120B40286003CC376 /* MyTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTheme.swift; sourceTree = "<group>"; };
 		6CFADFF420B409D2003CC376 /* default_theme.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = default_theme.plist; sourceTree = "<group>"; };
 		6CFADFF520B409D2003CC376 /* night_theme.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = night_theme.plist; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 		942DCF4B1F602220001AD160 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6CF92CAA20C9442D00BC6A40 /* HomeNewsTitle.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -682,6 +685,7 @@
 				6CB0F65420C1386E0074E98B /* SettingViewController.swift in Sources */,
 				942DCF6E1F602220001AD160 /* VideoViewController.swift in Sources */,
 				942DCF701F6024B7001AD160 /* MyTabBar.swift in Sources */,
+				6CF92CAB20C9442D00BC6A40 /* HomeNewsTitle.swift in Sources */,
 				942DCF661F602220001AD160 /* HomeViewController.swift in Sources */,
 				942DCF6C1F602220001AD160 /* AppDelegate.swift in Sources */,
 				6CCEFBC820A031D500D235C6 /* MyCellModel.swift in Sources */,
