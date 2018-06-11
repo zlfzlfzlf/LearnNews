@@ -17,7 +17,7 @@ protocol NetworkToolProtocol {
     // MARK: 首页顶部新闻标题的数据
     
 //    static func loadHomeNewsTitleData(completionHandler: @escaping (_ newsTitles: [String]) -> ())
-    static func loadHomeNewsTitleData(completionHandler: (_ newsTitles: [HomeNewsTitle]) -> ())
+    static func loadHomeNewsTitleData(completionHandler: @escaping (_ newsTitles: [HomeNewsTitle]) -> ())
     
     // MARK: 我的界面 cell 的数据
     static func loadMyCellData(completionHandler: @escaping (_ sections: [[MyCellModel]]) -> ())
@@ -27,7 +27,7 @@ protocol NetworkToolProtocol {
 }
 extension NetworkToolProtocol{
 
-    static func loadHomeNewsTitleData(completionHandler: (_ newsTitles: [HomeNewsTitle]) -> ()){
+    static func loadHomeNewsTitleData(completionHandler: @escaping (_ newsTitles: [HomeNewsTitle]) -> ()){
         let url = Base_URL + "/article/category/get_subscribed/v1/?"
         let params = ["device_id": device_id,
                       "iid": iid]
@@ -42,8 +42,10 @@ extension NetworkToolProtocol{
                     if let datas = dataDict["data"]?.arrayObject {
                         var titles = [HomeNewsTitle]()
                         titles.append(HomeNewsTitle.deserialize(from: "{\"category\": \"\", \"name\": \"推荐\"}")!)
-                     var bb = HomeNewsTitle.deserialize(from: $0 as? Dictionary)
-                        titles += datas.flatMap()
+                        let bbcded = datas.flatMap{(HomeNewsTitle.deserialize(from: $0 as? NSDictionary))}
+                        
+                        titles += bbcded
+                        completionHandler(titles)
                     }
                 }
             }
@@ -98,17 +100,21 @@ extension NetworkToolProtocol{
         
         Alamofire.request(url, parameters: params).responseJSON { (response) in
             // 网络错误的提示信息
-           
-    
-            
+       
             guard response.result.isSuccess else { return }
             if let value = response.result.value {
                 let json = JSON(value)
-                 print(json)
-//                print(json["data"].arrayObject)
                 guard json["message"] == "success" else { return }
                 if let datas = json["data"].arrayObject {
-                    completionHandler(datas.flatMap({ MyConcern.deserialize(from: $0 as? Dictionary) }))
+//                var titles = [MyConcern]()
+//                   for datae in datas
+//                   {
+//                   let bbv = MyConcern.deserialize(from: datae as? Dictionary)
+//                    titles.append(bbv!)
+//                    }
+//                    completionHandler(titles)
+              //同上
+            completionHandler(datas.flatMap{ MyConcern.deserialize(from: $0 as? Dictionary) })
                 }
             }
         }

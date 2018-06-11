@@ -13,6 +13,7 @@ extension UIColor {
         self.init(displayP3Red: r / 255.0, green: g / 255.0, blue: b / 255.0, alpha: alpha)
     }
     
+    
     class func globalBackgroundColo() -> UIColor {
         return UIColor(r: 248, g: 249, b: 247)
     }

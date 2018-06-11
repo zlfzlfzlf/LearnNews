@@ -97,7 +97,7 @@
                         <constraint firstItem="aBG-WJ-Qyg" firstAttribute="width" secondItem="FAj-gJ-VjR" secondAttribute="width" id="saA-LG-EDs"/>
                     </constraints>
                 </stackView>
-                <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y7a-yH-bet" customClass="AnimatableButton" customModule="IBAnimatable">
+                <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y7a-yH-bet">
                     <rect key="frame" x="125" y="142" width="125" height="28"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -146,7 +146,7 @@
                 <outlet property="stackView" destination="ODa-hH-aNE" id="jrj-4g-POw"/>
                 <outlet property="wechatButton" destination="ztO-b0-awD" id="vv2-B9-EXu"/>
             </connections>
-            <point key="canvasLocation" x="-706" y="-74"/>
+            <point key="canvasLocation" x="-745" y="-289"/>
         </view>
     </objects>
     <resources>

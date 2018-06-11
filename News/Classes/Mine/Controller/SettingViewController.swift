@@ -97,7 +97,9 @@ extension SettingViewController {
         case 1:
             switch indexPath.row {
             case 0:
-                print(indexPath.row)
+                let offDownVC = OfflineDownloadController()
+                offDownVC.navigationItem.title = "离线下载"
+                navigationController?.pushViewController(offDownVC, animated: true)
             case 1:
                 print(indexPath.row)
     
