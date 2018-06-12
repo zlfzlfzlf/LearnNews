@@ -10,20 +10,19 @@ import UIKit
 
 class OfflineDownloadController: UITableViewController {
     var titles = [HomeNewsTitle]()
+    fileprivate let newstitleTabs = NewsTitleTable()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.ym_registerCell(cell: OfficeDownCell.self)
-        NetworkTool.loadHomeNewsTitleData { (titles) in
-            self.titles = titles
-            self.tableView.reloadData()
-        }
+        
         tableView.rowHeight = 44;
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
     navigationController?.navigationItem.rightBarButtonItem?.title = "下载"
         
-        
+        titles = newstitleTabs.selectAll()
 //        tableView.ym_registerCell(cell)
 
     }

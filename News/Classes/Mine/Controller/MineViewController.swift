@@ -151,6 +151,11 @@ extension MineViewController {
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        if indexPath.section == 3 && indexPath.row == 0 {
+            let databaseVC = TestDatabaseController()
+            databaseVC.navigationItem.title = "数据库测试"
+            navigationController?.pushViewController(databaseVC, animated: true)
+        }
         if indexPath.section == 3 {
             if indexPath.row == 1 {
                 let settingVC = SettingViewController()

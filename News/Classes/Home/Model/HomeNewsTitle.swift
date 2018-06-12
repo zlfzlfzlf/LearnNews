@@ -11,6 +11,7 @@ import HandyJSON
 
 struct HomeNewsTitle: HandyJSON {
 //    var category: NewsTitleCategory = .recommend
+    var category: String = ""
     var tip_new: Int = 0
     var default_add: Int = 0
     var web_url: String = ""
