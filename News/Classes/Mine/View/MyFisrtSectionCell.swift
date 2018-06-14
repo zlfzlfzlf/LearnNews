@@ -8,7 +8,14 @@
 
 import UIKit
 
+//protocol MyFisrtSectionCellDelegate: class{
+//    func <#name#>(<#parameters#>) -> <#return type#> {
+//    <#function body#>
+//    }
+//}
 class MyFisrtSectionCell: UITableViewCell, RegistterCellOrNib {
+    
+
     /// 点击了第几个 cell
     var myConcernSelected: ((_ myConcern: MyConcern)->())?
     @IBOutlet weak var leftLabel: UILabel!
@@ -81,6 +88,8 @@ extension MyFisrtSectionCell: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         myConcernSelected?(myConcerns[indexPath.item])
+        let myConcer = myConcerns[indexPath.row]
+        
     }
     
 }

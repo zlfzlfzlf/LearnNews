@@ -18,6 +18,7 @@ class OfficeDownCell: UITableViewCell,RegistterCellOrNib {
     var HomeTitle: HomeNewsTitle? {
         didSet {
             title_label.text = HomeTitle?.name
+            stateImage.theme_image = (HomeTitle?.selected)! ? "images.air_download_option_press" : "images.air_download_option"
         }
     }
     override func awakeFromNib() {

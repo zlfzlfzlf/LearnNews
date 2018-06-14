@@ -151,19 +151,32 @@ extension MineViewController {
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if indexPath.section == 3 && indexPath.row == 0 {
+        //通过元组的方法，避免嵌套swich
+        switch (indexPath.section, indexPath.row) {
+        case (3, 0):
             let databaseVC = TestDatabaseController()
             databaseVC.navigationItem.title = "数据库测试"
             navigationController?.pushViewController(databaseVC, animated: true)
+        case (3, 1):
+            let settingVC = SettingViewController()
+            settingVC.navigationItem.title = "设置"
+            navigationController?.pushViewController(settingVC, animated: true)
+        default:
+            break
         }
-        if indexPath.section == 3 {
-            if indexPath.row == 1 {
-                let settingVC = SettingViewController()
-                settingVC.navigationItem.title = "设置"
-                navigationController?.pushViewController(settingVC, animated: true)
-                
-            }
-        }
+//        if indexPath.section == 3 && indexPath.row == 0 {
+//            let databaseVC = TestDatabaseController()
+//            databaseVC.navigationItem.title = "数据库测试"
+//            navigationController?.pushViewController(databaseVC, animated: true)
+//        }
+//        if indexPath.section == 3 {
+//            if indexPath.row == 1 {
+//                let settingVC = SettingViewController()
+//                settingVC.navigationItem.title = "设置"
+//                navigationController?.pushViewController(settingVC, animated: true)
+//
+//            }
+//        }
     }
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {

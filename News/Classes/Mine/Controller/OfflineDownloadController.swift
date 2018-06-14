@@ -59,6 +59,13 @@ extension OfflineDownloadController
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        var homeNewsTitle = titles[indexPath.row]
+        homeNewsTitle.selected = !homeNewsTitle.selected
+        let cell = tableView.cellForRow(at: indexPath) as! OfficeDownCell
+        cell.stateImage.theme_image = homeNewsTitle.selected ? "images.air_download_option_press" : "images.air_download_option"
+        titles[indexPath.row] = homeNewsTitle
+        newstitleTabs.update(homeNewsTitle)
+        
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -80,5 +87,5 @@ extension OfflineDownloadController
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 44
     }
-
+   
 }
