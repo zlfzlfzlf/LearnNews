@@ -23,6 +23,8 @@ protocol NetworkToolProtocol {
     static func loadMyCellData(completionHandler: @escaping (_ sections: [[MyCellModel]]) -> ())
     //我的关注数据
     static func loadMyConcern(completionHandler: @escaping (_ concerns: [MyConcern]) -> ())
+    ///用户详情
+    static func loadUserDetail(userId: Int, completionHandler: @escaping (_ concerns: UserDetail) -> ())
 //    static func loadMyConcern()
 }
 extension NetworkToolProtocol{
@@ -92,7 +94,7 @@ extension NetworkToolProtocol{
         }
         
     }
-    
+    ///我的关注数据
     static func loadMyConcern(completionHandler: @escaping (_ concerns: [MyConcern]) -> ()) {
         
         let url = Base_URL + "/concern/v2/follow/my_follow/?"
@@ -119,10 +121,41 @@ extension NetworkToolProtocol{
             }
         }
     }
-    //我的关注数据
-//    static func loadMyConcern(){
-//
-//    }
+    
+     /// 获取用户详情数据
+    /// - parameter userId: 用户id
+    /// - parameter completionHandler: 返回用户详情数据
+    /// - parameter userDetail:  用户详情数据
+    static func loadUserDetail(userId: Int, completionHandler: @escaping (_ concerns: UserDetail) -> ()) {
+        
+        let url = Base_URL + "/user/profile/homepage/v4/?"
+        let params = ["user_id": userId,
+                      "device_id": device_id,
+                      "iid": iid]
+        
+        Alamofire.request(url, parameters: params).responseJSON { (response) in
+            // 网络错误的提示信息
+            
+            guard response.result.isSuccess else { return }
+            if let value = response.result.value {
+                let json = JSON(value)
+                guard json["message"] == "success" else { return }
+                if let datas = json["data"].dictionaryObject {
+                    //                var titles = [MyConcern]()
+                    //                   for datae in datas
+                    //                   {
+                    //                   let bbv = MyConcern.deserialize(from: datae as? Dictionary)
+                    //                    titles.append(bbv!)
+                    //                    }
+                    //                    completionHandler(titles)
+                    //同上
+                    completionHandler(UserDetail.deserialize(from: datas )!)
+                }
+            }
+        }
+    }
+  
+
 }
 struct NetworkTool: NetworkToolProtocol {
 

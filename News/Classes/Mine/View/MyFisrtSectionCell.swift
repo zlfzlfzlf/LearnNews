@@ -88,7 +88,7 @@ extension MyFisrtSectionCell: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         myConcernSelected?(myConcerns[indexPath.item])
-        let myConcer = myConcerns[indexPath.row]
+//        let myConcer = myConcerns[indexPath.row]
         
     }
     

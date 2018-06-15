@@ -15,12 +15,19 @@
 		6C213DDC20A17047007F2B0F /* MyFisrtSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C213DDA20A17047007F2B0F /* MyFisrtSectionCell.swift */; };
 		6C213DDD20A17047007F2B0F /* MyFisrtSectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C213DDB20A17047007F2B0F /* MyFisrtSectionCell.xib */; };
 		6C2AA24620B2C1240075E3A0 /* NoLoginHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2AA24520B2C1240075E3A0 /* NoLoginHeaderView.swift */; };
+		6C36758020D2062300D57A1C /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C36757E20D2062300D57A1C /* UserDetailViewController.swift */; };
+		6C36758120D2062300D57A1C /* UserDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C36757F20D2062300D57A1C /* UserDetailViewController.xib */; };
+		6C36758320D2064F00D57A1C /* UserDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C36758220D2064F00D57A1C /* UserDetailHeaderView.swift */; };
+		6C36758520D2066300D57A1C /* UserDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C36758420D2066300D57A1C /* UserDetailHeaderView.xib */; };
 		6C427BFF20CE665D007E1E18 /* OfficeDownCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C427BFD20CE665D007E1E18 /* OfficeDownCell.swift */; };
 		6C427C0020CE665D007E1E18 /* OfficeDownCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C427BFE20CE665D007E1E18 /* OfficeDownCell.xib */; };
+		6C4C063920D368690071A1FC /* UIKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4C063820D368690071A1FC /* UIKit+Extension.swift */; };
+		6C4C063B20D368DC0071A1FC /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4C063A20D368DC0071A1FC /* Emoji.swift */; };
 		6C65BB5020BFF3400053829B /* MoreLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C65BB4E20BFF3400053829B /* MoreLoginViewController.swift */; };
 		6C65BB5120BFF3400053829B /* MoreLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C65BB4F20BFF3400053829B /* MoreLoginViewController.xib */; };
 		6C70867B20C67ABB006B5F60 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C70867920C67ABB006B5F60 /* SettingCell.swift */; };
 		6C70867E20C687B1006B5F60 /* SettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C70867D20C687B0006B5F60 /* SettingCell.xib */; };
+		6CACBE2220D3C24900B8572D /* UserDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CACBE2120D3C24900B8572D /* UserDetail.swift */; };
 		6CB0F65420C1386E0074E98B /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB0F65320C1386E0074E98B /* SettingViewController.swift */; };
 		6CB0F65620C1413E0074E98B /* settingPlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6CB0F65520C1413E0074E98B /* settingPlist.plist */; };
 		6CB0F65820C142030074E98B /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB0F65720C142030074E98B /* SettingModel.swift */; };
@@ -85,14 +92,21 @@
 		6C213DDB20A17047007F2B0F /* MyFisrtSectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyFisrtSectionCell.xib; sourceTree = "<group>"; };
 		6C2AA24520B2C1240075E3A0 /* NoLoginHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoLoginHeaderView.swift; sourceTree = "<group>"; };
 		6C2AA24A20B2D5E40075E3A0 /* IBAnimatable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IBAnimatable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C36757E20D2062300D57A1C /* UserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
+		6C36757F20D2062300D57A1C /* UserDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDetailViewController.xib; sourceTree = "<group>"; };
+		6C36758220D2064F00D57A1C /* UserDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailHeaderView.swift; sourceTree = "<group>"; };
+		6C36758420D2066300D57A1C /* UserDetailHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDetailHeaderView.xib; sourceTree = "<group>"; };
 		6C3F93A820A013260090EC28 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C3F93AA20A0136B0090EC28 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C427BFD20CE665D007E1E18 /* OfficeDownCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficeDownCell.swift; sourceTree = "<group>"; };
 		6C427BFE20CE665D007E1E18 /* OfficeDownCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfficeDownCell.xib; sourceTree = "<group>"; };
+		6C4C063820D368690071A1FC /* UIKit+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+Extension.swift"; sourceTree = "<group>"; };
+		6C4C063A20D368DC0071A1FC /* Emoji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
 		6C65BB4E20BFF3400053829B /* MoreLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreLoginViewController.swift; sourceTree = "<group>"; };
 		6C65BB4F20BFF3400053829B /* MoreLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreLoginViewController.xib; sourceTree = "<group>"; };
 		6C70867920C67ABB006B5F60 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		6C70867D20C687B0006B5F60 /* SettingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingCell.xib; sourceTree = "<group>"; };
+		6CACBE2120D3C24900B8572D /* UserDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetail.swift; sourceTree = "<group>"; };
 		6CB0F65320C1386E0074E98B /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		6CB0F65520C1413E0074E98B /* settingPlist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = settingPlist.plist; sourceTree = "<group>"; };
 		6CB0F65720C142030074E98B /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
@@ -178,6 +192,7 @@
 				6CFADFF120B40286003CC376 /* MyTheme.swift */,
 				6CDB410E20CE827A0066324D /* SQLiteManager.swift */,
 				6C03039020CF6A2D0013907A /* Database.swift */,
+				6C4C063A20D368DC0071A1FC /* Emoji.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -189,6 +204,7 @@
 				6CC3DB4320A442B200DF3663 /* UIView+Extension.swift */,
 				6CC3DB4520A443D500DF3663 /* UITableView+Extension.swift */,
 				6CC3DB4720A44A2B00DF3663 /* UICollection+Extension.swift */,
+				6C4C063820D368690071A1FC /* UIKit+Extension.swift */,
 			);
 			path = Extention;
 			sourceTree = "<group>";
@@ -385,6 +401,8 @@
 				6CB0F65320C1386E0074E98B /* SettingViewController.swift */,
 				6CF92CA820C93FC900BC6A40 /* OfflineDownloadController.swift */,
 				6C03039220CF6E030013907A /* TestDatabaseController.swift */,
+				6C36757E20D2062300D57A1C /* UserDetailViewController.swift */,
+				6C36757F20D2062300D57A1C /* UserDetailViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -394,6 +412,7 @@
 			children = (
 				6CCEFBC720A031D500D235C6 /* MyCellModel.swift */,
 				6CB0F65720C142030074E98B /* SettingModel.swift */,
+				6CACBE2120D3C24900B8572D /* UserDetail.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -413,6 +432,8 @@
 				6C70867D20C687B0006B5F60 /* SettingCell.xib */,
 				6C427BFD20CE665D007E1E18 /* OfficeDownCell.swift */,
 				6C427BFE20CE665D007E1E18 /* OfficeDownCell.xib */,
+				6C36758220D2064F00D57A1C /* UserDetailHeaderView.swift */,
+				6C36758420D2066300D57A1C /* UserDetailHeaderView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -591,9 +612,11 @@
 				942DCF161F6010E1001AD160 /* LaunchScreen.storyboard in Resources */,
 				6CD6955C20AEC22300B7689A /* MyConcernCell.xib in Resources */,
 				6C70867E20C687B1006B5F60 /* SettingCell.xib in Resources */,
+				6C36758120D2062300D57A1C /* UserDetailViewController.xib in Resources */,
 				6C427C0020CE665D007E1E18 /* OfficeDownCell.xib in Resources */,
 				6CEE9C3C20B3BBD5003632C7 /* NoLoginHeaderView.xib in Resources */,
 				6C213DD920A1651A007F2B0F /* MyOtherCell.xib in Resources */,
+				6C36758520D2066300D57A1C /* UserDetailHeaderView.xib in Resources */,
 				6C65BB5120BFF3400053829B /* MoreLoginViewController.xib in Resources */,
 				6C213DDD20A17047007F2B0F /* MyFisrtSectionCell.xib in Resources */,
 				6CB0F65620C1413E0074E98B /* settingPlist.plist in Resources */,
@@ -702,9 +725,14 @@
 				6C04149E209C1B9B0059AB2D /* NetworkTool.swift in Sources */,
 				6CD6955B20AEC22300B7689A /* MyConcernCell.swift in Sources */,
 				6C2AA24620B2C1240075E3A0 /* NoLoginHeaderView.swift in Sources */,
+				6C4C063920D368690071A1FC /* UIKit+Extension.swift in Sources */,
+				6CACBE2220D3C24900B8572D /* UserDetail.swift in Sources */,
+				6C4C063B20D368DC0071A1FC /* Emoji.swift in Sources */,
 				942DCF681F602220001AD160 /* MyNavigationController.swift in Sources */,
 				6CC3DB4420A442B200DF3663 /* UIView+Extension.swift in Sources */,
+				6C36758020D2062300D57A1C /* UserDetailViewController.swift in Sources */,
 				942DCF691F602220001AD160 /* MyTabBarController.swift in Sources */,
+				6C36758320D2064F00D57A1C /* UserDetailHeaderView.swift in Sources */,
 				6C427BFF20CE665D007E1E18 /* OfficeDownCell.swift in Sources */,
 				6CB0F65420C1386E0074E98B /* SettingViewController.swift in Sources */,
 				6C03039320CF6E030013907A /* TestDatabaseController.swift in Sources */,

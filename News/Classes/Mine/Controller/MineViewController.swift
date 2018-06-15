@@ -63,7 +63,7 @@ class MineViewController: UITableViewController {
         headerView.moreLoginButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 let loginView = MoreLoginViewController()
-                //从下弹出一个界面作为登陆界面，completion作为闭包，可以写一些弹出loginView时的一些操作
+    //从下弹出一个界面作为登陆界面，completion作为闭包，可以写一些弹出loginView时的一些操作
 //                self?.present(loginView, animated: true, completion: nil)
                 self?.present(loginView, animated: true, completion: {
                     
@@ -73,6 +73,9 @@ class MineViewController: UITableViewController {
 
             })
             .disposed(by: disposeBag)
+        
+       
+        
     }
         
         
@@ -135,8 +138,12 @@ extension MineViewController {
             cell.collectionView.isHidden = (concerns.count == 0 || concerns.count == 1)
             if concerns.count == 1 { cell.myConcern = concerns[0] }
             if concerns.count > 1 { cell.myConcerns = concerns }
-            
-           
+            cell.myConcernSelected = { [weak self] in
+                let userDetailVC = UserDetailViewController()
+                userDetailVC.userId = $0.userid
+//                print("userId = \($0.userid)")
+            self?.navigationController?.pushViewController(userDetailVC, animated: true)
+            }
             return cell
             
         }
