@@ -7,8 +7,57 @@
 //
 
 import UIKit
+import Kingfisher
 
 class UserDetailHeaderView: UIView {
+    var userdetail: UserDetail? {
+        didSet {
+//            print(userdetail?.bg_img_url)
+            backgroundImageView.kf.setImage(with: URL(string: userdetail!.bg_img_url)!)
+            avatarImageView.kf.setImage(with: URL(string: (userdetail?.avatar_url)!))
+            vImageView.isHidden = !(userdetail?.user_verified)!
+            nameLabel.text = userdetail?.screen_name
+            if userdetail!.verified_agency == "" {
+                verifiedAgencyLabelHeight.constant = 0
+                verifiedAgencyLabelTop.constant = 0
+            } else {
+                verifiedAgencyLabel.text = userdetail!.verified_agency + "："
+                verifiedContentLabel.text = userdetail!.verified_content
+            }
+            concernButton.isSelected = (userdetail?.is_following)!
+//            concernButton.theme_backgroundColor = (userdetail?.is_following)! ? "colors.userDetailFollowingConcernBtnBgColor" : "colors.globalRedColor"
+            concernButton.backgroundColor = (userdetail?.is_following)! ? UIColor.gray : UIColor.blue
+            concernButton.setTitle("已关注", for: .selected)
+            
+            
+//            self.concernButton.layer.borderWidth = 1.0
+//            self.concernButton.layer.borderColor = (userdetail?.is_following)! ? UIColor.grayColor232() as! CGColor : UIColor.globalRedColor() as! CGColor
+            if userdetail!.area == "" {
+                areaButton.isHidden = true
+                areaButtonHeight.constant = 0
+                areaButtonTop.constant = 0
+            } else {
+                areaButton.setTitle(userdetail!.area, for: .normal)
+            }
+            
+            descriptionLabel.text = userdetail?.description
+            if userdetail!.descriptionHeight > CGFloat(21) {
+                unfoldButton.isHidden = false
+                unfoldButtonWidth.constant = 40.0
+            }else {
+                unfoldButton.isHidden = true
+                unfoldButtonWidth.constant = 0
+            }
+            
+            // 推荐按钮的约束
+            recommendButtonWidth.constant = 0
+            recommendButtonTrailing.constant = 10.0
+            followersCountLabel.text = userdetail!.followersCount
+            followingsCountLabel.text = userdetail!.followingsCount
+            
+            layoutIfNeeded()
+        }
+    }
     /// 背景图片
     @IBOutlet weak var backgroundImageView: UIImageView!
     /// 背景图片顶部约束
@@ -61,6 +110,8 @@ class UserDetailHeaderView: UIView {
     @IBOutlet weak var scrollView: UIScrollView!
     /// 底层 view
     @IBOutlet weak var baseView: UIView!
+    
+    
     /// 底部的 ScrollView
 //    @IBOutlet weak var bottomScrollView: UIScrollView!
     class func headerViewXIB() -> UserDetailHeaderView {
@@ -68,6 +119,12 @@ class UserDetailHeaderView: UIView {
 //        view = UserDetailHeaderView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
         return view
         
+    }
+    override func awakeFromNib() {
+        self.avatarImageView.layer.cornerRadius = 36
+        self.avatarImageView.layer.masksToBounds = true
+//        print(userdetail?.bg_img_url)
+
     }
     /*
     // Only override draw() if you perform custom drawing.

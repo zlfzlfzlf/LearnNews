@@ -19,7 +19,7 @@ class UserDetailViewController: UIViewController {
     @IBOutlet weak var bottomViewBotom: NSLayoutConstraint!
     
     var userId: Int = 0
-//    var userDetail = UserDetail()
+    var userDetail: UserDetail?
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
@@ -39,6 +39,16 @@ class UserDetailViewController: UIViewController {
 //        headerView.x = 0
 //        headerView.y = 100
         scrollView.addSubview(headerView)
+        NetworkTool.loadUserDetail(userId: self.userId) { [weak self] userDetail in
+            self?.userDetail = userDetail
+            self?.headerView.userdetail = userDetail
+            if userDetail.bottom_tab.count == 0 {
+                self?.bottomViewBotom.constant = 0
+                self?.view.layoutIfNeeded()
+            }else {
+                
+            }
+        }
     }
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent

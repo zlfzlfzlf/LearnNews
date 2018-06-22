@@ -40,7 +40,7 @@ struct UserDetail: HandyJSON {
     var creator_id: Int = 0             // 53271122458
     
     var description: String = "" // 考研规划“神嘴”张雪峰老师。
-    var descriptionHeight: CGFloat? {
+    var descriptionHeight: CGFloat {
         let sized = description.boundingRect(with: CGSize(width: screenWidth - 30, height: CGFloat(MAXFLOAT)), font: UIFont.boldSystemFont(ofSize: 13))
         
         return sized.height
@@ -117,6 +117,75 @@ struct BottomTabChildren: HandyJSON {
     var name: String = ""
     
     var value: String = "" // http://www.guanfumuseum.org.cn/
+}
+
+
+struct ConcernUser: HandyJSON {
+    var is_followed: Bool = false
+    var is_following: Bool = false // 是否正在关注
+    var media_id: Int = 0               // 1554769814257666
+    
+    var create_time: TimeInterval = 0
+    
+    var user_verified: Bool = false
+    
+    var screen_name: String = "" // 考研张雪峰
+    var name: String = "" // 考研张雪峰
+    
+    var user_id: Int = 0                // 53271122458
+    
+    var last_update: String = ""
+    
+    var avatar_url: String = ""
+    
+    var user_auth_info = UserAuthInfo()
+    
+    var type: Int = 0
+}
+
+struct UserCard: HandyJSON {
+    
+    var name: String = ""
+    
+    var recommend_reason: String = ""
+    
+    var recommend_type: Int = 0
+    
+//    var user: UserCardUser = UserCardUser()
+    
+    var stats_place_holder: String = ""
+    
+}
+
+struct UserCardUser: HandyJSON {
+    var info = UserCardUserInfo()
+    var relation: UserCardUserRelation = UserCardUserRelation()
+}
+
+struct UserCardUserInfo: HandyJSON {
+    
+    var name: String = ""
+    
+    var user_id: Int = 0
+    
+    var avatar_url: String = ""
+    
+    var desc: String = ""
+    
+    var schema: String = ""
+    
+    var user_auth_info = UserAuthInfo()
+}
+
+// MARK: 相关推荐的用户是否关注模型
+struct UserCardUserRelation: HandyJSON {
+    
+    var is_followed: Bool = false
+    
+    var is_following: Bool = false
+    
+    var is_friend: Bool = false
+    
 }
 
 extension String {

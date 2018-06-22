@@ -10,60 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "News/Classes/Main/Tools/NetworkTool.swift"
-            timestampString = "550403727.377339"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "NetworkToolProtocol"
-            landmarkType = "21">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static (extension in News):News.NetworkToolProtocol.loadMyCellData(completionHandler: (Swift.Array&lt;Swift.Array&lt;News.MyCellModel&gt;&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "News"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zlf/Desktop/%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6/News/News/Classes/Main/Tools/NetworkTool.swift"
-                  timestampString = "547442046.50328"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "27"
-                  endingLineNumber = "27"
-                  offsetFromSymbolStart = "388">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in static (extension in News):News.NetworkToolProtocol.loadMyCellData(completionHandler: (Swift.Array&lt;Swift.Array&lt;News.MyCellModel&gt;&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "News"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zlf/Desktop/%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6/News/News/Classes/Main/Tools/NetworkTool.swift"
-                  timestampString = "547442046.505443"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "32">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "News/Classes/Main/Tools/NetworkTool.swift"
-            timestampString = "550403727.377424"
+            timestampString = "551268257.032261"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "65"
             endingLineNumber = "65"
-            landmarkName = "loadMyCellData(completionHandler:)"
+            landmarkName = "loadHomeNewsTitleData(completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -203,6 +155,22 @@
             endingLineNumber = "27"
             landmarkName = "connectDatabase(filePath:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "News/Classes/Mine/View/UserDetailHeaderView.swift"
+            timestampString = "551268257.032552"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "userdetail"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

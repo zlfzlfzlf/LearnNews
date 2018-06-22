@@ -567,7 +567,7 @@
 				TargetAttributes = {
 					942DCF071F6010E1001AD160 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 395L66WRME;
+						DevelopmentTeam = AZ64S2C32Q;
 						ProvisioningStyle = Automatic;
 					};
 					942DCF1B1F6010E1001AD160 = {
@@ -898,7 +898,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = 395L66WRME;
+				DEVELOPMENT_TEAM = AZ64S2C32Q;
 				INFOPLIST_FILE = "$(SRCROOT)/News/Classes/Others/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -914,7 +914,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = 395L66WRME;
+				DEVELOPMENT_TEAM = AZ64S2C32Q;
 				INFOPLIST_FILE = "$(SRCROOT)/News/Classes/Others/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

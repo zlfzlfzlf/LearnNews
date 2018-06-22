@@ -259,7 +259,7 @@
                 <constraint firstItem="28S-5L-I6g" firstAttribute="height" secondItem="olM-Rh-KLC" secondAttribute="height" id="wMh-WM-izs"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="FAM-S3-kH2"/>
-            <point key="canvasLocation" x="-747" y="-114"/>
+            <point key="canvasLocation" x="-987" y="-165"/>
         </view>
     </objects>
     <resources>
