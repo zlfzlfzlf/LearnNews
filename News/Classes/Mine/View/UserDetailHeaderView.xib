@@ -51,6 +51,9 @@
                                 <constraint firstAttribute="height" constant="28" id="zu3-FE-kRM"/>
                             </constraints>
                             <state key="normal" image="arrow_up_16_16x14_"/>
+                            <connections>
+                                <action selector="recommendButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="dIz-5m-TbR"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mRt-Ap-vXr">
                             <rect key="frame" x="200" y="15" width="72" height="28"/>
@@ -66,11 +69,17 @@
                                     <real key="value" value="5"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="concernButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="Eiv-Ne-PKr"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fge-TQ-BZ0">
                             <rect key="frame" x="113" y="15" width="72" height="28"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <state key="normal" title="发私信"/>
+                            <connections>
+                                <action selector="sendMailButtonClicked" destination="iN0-l3-epB" eventType="touchUpInside" id="Vek-Vx-vO8"/>
+                            </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K9Z-dJ-skJ">
                             <rect key="frame" x="0.0" y="52" width="320" height="10"/>
@@ -117,7 +126,7 @@
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u6d-NS-uaf">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u6d-NS-uaf">
                             <rect key="frame" x="15" y="155" width="260" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="hQe-MN-Awq"/>
@@ -134,6 +143,9 @@
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <state key="normal" title="展开"/>
+                            <connections>
+                                <action selector="unfoldButtonClicked" destination="iN0-l3-epB" eventType="touchUpInside" id="kga-RR-yTM"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SAE-dS-Aga">
                             <rect key="frame" x="15" y="186" width="37.5" height="18"/>
@@ -169,7 +181,7 @@
                                         <constraint firstAttribute="height" constant="0.5" id="8g6-CQ-Ru5"/>
                                     </constraints>
                                 </view>
-                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ds-2D-TgI">
+                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ds-2D-TgI">
                                     <rect key="frame" x="0.0" y="0.5" width="320" height="39.5"/>
                                 </scrollView>
                             </subviews>
@@ -283,7 +295,7 @@
                 <outlet property="verifiedAgencyLabelTop" destination="pOo-k5-ddf" id="uib-xF-dG8"/>
                 <outlet property="verifiedContentLabel" destination="Rvc-nn-xGi" id="Knc-ej-WjU"/>
             </connections>
-            <point key="canvasLocation" x="807" y="-902"/>
+            <point key="canvasLocation" x="385" y="-1146"/>
         </view>
     </objects>
     <resources>

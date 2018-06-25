@@ -184,7 +184,7 @@ extension NetworkToolProtocol{
     }
     
     static func loadRelationUnfollow(userId: Int, completionHandler: @escaping (_ user: ConcernUser) -> ()) {
-        let url = Base_URL + "/user/profile/homepage/v4/?"
+        let url = Base_URL + "/2/relation/unfollow/?"
         let params = ["user_id": userId,
                       "device_id": device_id,
                       "iid": iid]
@@ -195,24 +195,17 @@ extension NetworkToolProtocol{
             guard response.result.isSuccess else { return }
             if let value = response.result.value {
                 let json = JSON(value)
-                guard json["message"] == "success" else {
+                guard json["message"] == "success" else {return }
                     if let data = json["data"].dictionaryObject {
-                        SVProgressHUD.showInfo(withStatus: data["description"] as? String)
-                        SVProgressHUD.setForegroundColor(UIColor.white)
-                        SVProgressHUD.setBackgroundColor(UIColor(r: 0, g: 0, b: 0, alpha: 0.3))
+                     completionHandler(ConcernUser.deserialize(from: data["user"] as? Dictionary)!)
                     }
-                    return }
-                if let user = json["data"]["user"].dictionaryObject {
-                    //                var titles = [MyConcern]()
-                    //                   for datae in datas
-                    //                   {
-                    //                   let bbv = MyConcern.deserialize(from: datae as? Dictionary)
-                    //                    titles.append(bbv!)
-                    //                    }
-                    //                    completionHandler(titles)
-                    //同上
-                    completionHandler(ConcernUser.deserialize(from: user)!)
-                }
+                    
+//                print(json["data"]["user"].dictionaryObject)
+//                if let user = json["data"]["user"].dictionaryObject {
+//                    
+//                    completionHandler(ConcernUser.deserialize(from: user)!)
+//                }
+              
             }
         }
     }
