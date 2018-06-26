@@ -17,3 +17,11 @@ extension RegistterCellOrNib{
         return UINib(nibName: "\(self)", bundle: nil)
     }
 }
+
+protocol NibLoada {}
+
+extension NibLoada {
+    static func loadFromNib() -> Self {
+        return Bundle.main.loadNibNamed("\(self)", owner: nil, options: nil)?.last as! Self
+    }
+}

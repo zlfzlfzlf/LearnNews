@@ -27,6 +27,7 @@
 		6C65BB5120BFF3400053829B /* MoreLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C65BB4F20BFF3400053829B /* MoreLoginViewController.xib */; };
 		6C70867B20C67ABB006B5F60 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C70867920C67ABB006B5F60 /* SettingCell.swift */; };
 		6C70867E20C687B1006B5F60 /* SettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C70867D20C687B0006B5F60 /* SettingCell.xib */; };
+		6CA91EC120E2312400BEA332 /* UserDetailBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA91EC020E2312400BEA332 /* UserDetailBottomView.swift */; };
 		6CACBE2220D3C24900B8572D /* UserDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CACBE2120D3C24900B8572D /* UserDetail.swift */; };
 		6CB0F65420C1386E0074E98B /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB0F65320C1386E0074E98B /* SettingViewController.swift */; };
 		6CB0F65620C1413E0074E98B /* settingPlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6CB0F65520C1413E0074E98B /* settingPlist.plist */; };
@@ -106,6 +107,7 @@
 		6C65BB4F20BFF3400053829B /* MoreLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreLoginViewController.xib; sourceTree = "<group>"; };
 		6C70867920C67ABB006B5F60 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		6C70867D20C687B0006B5F60 /* SettingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingCell.xib; sourceTree = "<group>"; };
+		6CA91EC020E2312400BEA332 /* UserDetailBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailBottomView.swift; sourceTree = "<group>"; };
 		6CACBE2120D3C24900B8572D /* UserDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetail.swift; sourceTree = "<group>"; };
 		6CB0F65320C1386E0074E98B /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		6CB0F65520C1413E0074E98B /* settingPlist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = settingPlist.plist; sourceTree = "<group>"; };
@@ -434,6 +436,7 @@
 				6C427BFE20CE665D007E1E18 /* OfficeDownCell.xib */,
 				6C36758220D2064F00D57A1C /* UserDetailHeaderView.swift */,
 				6C36758420D2066300D57A1C /* UserDetailHeaderView.xib */,
+				6CA91EC020E2312400BEA332 /* UserDetailBottomView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -721,6 +724,7 @@
 				6C03039120CF6A2D0013907A /* Database.swift in Sources */,
 				6C213DDC20A17047007F2B0F /* MyFisrtSectionCell.swift in Sources */,
 				6C65BB5020BFF3400053829B /* MoreLoginViewController.swift in Sources */,
+				6CA91EC120E2312400BEA332 /* UserDetailBottomView.swift in Sources */,
 				6CFADFF220B40286003CC376 /* MyTheme.swift in Sources */,
 				6C04149E209C1B9B0059AB2D /* NetworkTool.swift in Sources */,
 				6CD6955B20AEC22300B7689A /* MyConcernCell.swift in Sources */,

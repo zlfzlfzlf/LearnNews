@@ -27,6 +27,7 @@ class UserDetailViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.bottomView.backgroundColor = UIColor.gray
         if isIPhoneX {
             bottomViewBotom.constant = 34
         }else {
@@ -36,17 +37,23 @@ class UserDetailViewController: UIViewController {
         self.navigationController?.navigationItem.title = "用户详情"
         view.backgroundColor = UIColor.white
         scrollView.contentSize = CGSize(width: screenWidth, height: 1000)
-//        headerView.x = 0
-//        headerView.y = 100
+
         scrollView.addSubview(headerView)
         NetworkTool.loadUserDetail(userId: self.userId) { [weak self] userDetail in
             self?.userDetail = userDetail
             self?.headerView.userdetail = userDetail
             if userDetail.bottom_tab.count == 0 {
                 self?.bottomViewBotom.constant = 0
-                self?.view.layoutIfNeeded()
+                self?.bottomViewHeight.constant = 0
+                self?.headerView.height = 979 - 34
+//                self?.view.layoutIfNeeded()
             }else {
+                self?.headerView.height = 969
+                self?.bottomViewHeight.constant = 40;
                 
+             self?.bottomView.addSubview((self?.myBottomView)!)
+//                self?.view.layoutIfNeeded()
+                self?.myBottomView.bottomTabs = userDetail.bottom_tab
             }
         }
     }
@@ -55,7 +62,7 @@ class UserDetailViewController: UIViewController {
     }
     
     fileprivate var headerView: UserDetailHeaderView = {
-        let headerView = UserDetailHeaderView.headerViewXIB()
+        let headerView = UserDetailHeaderView.loadFromNib()
         var cgrect: CGRect = headerView.frame
         print(cgrect)
         cgrect = CGRect(x: 0, y: 0, width: screenWidth, height: 300)
@@ -68,7 +75,11 @@ class UserDetailViewController: UIViewController {
     
     /// 懒加载 头部
 //    private lazy var headerView = UserDetailHeaderView.loadViewFromNib()
-    
+    /// 懒加载 底部
+    fileprivate lazy var myBottomView: UserDetailBottomView = {
+        let myBottomView = UserDetailBottomView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 44))
+        return myBottomView
+    }()
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

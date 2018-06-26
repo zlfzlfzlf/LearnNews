@@ -9,7 +9,7 @@
 import UIKit
 import Kingfisher
 
-class UserDetailHeaderView: UIView {
+class UserDetailHeaderView: UIView, NibLoada, UIScrollViewDelegate {
     /// 当前选中的 topTab 的索引，点击了第几个
     var currentSelectedIndex = 0
     
@@ -51,7 +51,7 @@ class UserDetailHeaderView: UIView {
                 unfoldButton.isHidden = true
                 unfoldButtonWidth.constant = 0
             }
-            
+            scrollView.delegate = self;
             // 推荐按钮的约束
             recommendButtonWidth.constant = 0
             recommendButtonTrailing.constant = 10.0
@@ -147,12 +147,12 @@ class UserDetailHeaderView: UIView {
     
     /// 底部的 ScrollView
 //    @IBOutlet weak var bottomScrollView: UIScrollView!
-    class func headerViewXIB() -> UserDetailHeaderView {
-        let view = Bundle.main.loadNibNamed("\(self)", owner: nil, options: nil)?.last as! UserDetailHeaderView
-//        view = UserDetailHeaderView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
-        return view
-        
-    }
+//    class func headerViewXIB() -> UserDetailHeaderView {
+//        let view = Bundle.main.loadNibNamed("\(self)", owner: nil, options: nil)?.last as! UserDetailHeaderView
+////        view = UserDetailHeaderView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
+//        return view
+//
+//    }
     override func awakeFromNib() {
         self.avatarImageView.layer.cornerRadius = 36
         self.avatarImageView.layer.masksToBounds = true
@@ -179,6 +179,9 @@ class UserDetailHeaderView: UIView {
         toutiaohaoImageView.theme_image = "images.toutiaohao"
         areaButton.theme_setTitleColor("colors.black", forState: .normal)
 
+    }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print("123465798")
     }
    
 

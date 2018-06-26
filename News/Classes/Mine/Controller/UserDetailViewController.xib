@@ -24,13 +24,12 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S7I-7x-47n">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="627"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </scrollView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d4T-Jd-3tP">
-                    <rect key="frame" x="0.0" y="627" width="375" height="40"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <rect key="frame" x="0.0" y="667" width="375" height="0.0"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="2Sa-YD-aXh"/>
+                        <constraint firstAttribute="height" id="2Sa-YD-aXh"/>
                     </constraints>
                 </view>
             </subviews>
@@ -44,7 +43,7 @@
                 <constraint firstItem="S7I-7x-47n" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cCf-6x-tCI"/>
                 <constraint firstAttribute="bottom" secondItem="d4T-Jd-3tP" secondAttribute="bottom" id="cUv-J5-ynP"/>
             </constraints>
-            <point key="canvasLocation" x="-125" y="55"/>
+            <point key="canvasLocation" x="-519" y="-194"/>
         </view>
     </objects>
 </document>

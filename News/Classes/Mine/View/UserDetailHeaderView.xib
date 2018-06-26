@@ -295,7 +295,7 @@
                 <outlet property="verifiedAgencyLabelTop" destination="pOo-k5-ddf" id="uib-xF-dG8"/>
                 <outlet property="verifiedContentLabel" destination="Rvc-nn-xGi" id="Knc-ej-WjU"/>
             </connections>
-            <point key="canvasLocation" x="385" y="-1146"/>
+            <point key="canvasLocation" x="484" y="-1179"/>
         </view>
     </objects>
     <resources>
