@@ -163,7 +163,7 @@ extension MineViewController {
         case (3, 0):
             let databaseVC = TestDatabaseController()
             databaseVC.navigationItem.title = "数据库测试"
-            navigationController?.pushViewController(databaseVC, animated: true)
+        navigationController?.pushViewController(databaseVC, animated: true)
         case (3, 1):
             let settingVC = SettingViewController()
             settingVC.navigationItem.title = "设置"

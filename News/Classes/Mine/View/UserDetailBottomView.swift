@@ -8,8 +8,14 @@
 
 import UIKit
 
-class UserDetailBottomView: UIView {
+protocol UserDetailBottomViewDelegate: class{
+    func bottomView(clicked button: UIButton, bottomTab: BottomTab)
+}
 
+class UserDetailBottomView: UIView {
+    
+weak var delegate: UserDetailBottomViewDelegate?
+    
     var bottomTabs = [BottomTab]() {
         didSet {
             let buttonWith = (screenWidth - CGFloat(bottomTabs.count)) / CGFloat(bottomTabs.count)
@@ -33,7 +39,14 @@ class UserDetailBottomView: UIView {
     }
     
     @objc func bottomTabButtonClicked(button: UIButton) {
-        
+//        print(delegate)
+//        print(<#T##items: Any...##Any#>)
+        delegate?.bottomView(clicked: button, bottomTab: bottomTabs[button.tag])
+        if bottomTabs.count  == 0 {
+            
+        }else {
+            
+        }
     }
     
     override init(frame: CGRect) {

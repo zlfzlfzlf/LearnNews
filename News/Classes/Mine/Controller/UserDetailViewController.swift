@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class UserDetailViewController: UIViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
@@ -78,6 +79,7 @@ class UserDetailViewController: UIViewController {
     /// 懒加载 底部
     fileprivate lazy var myBottomView: UserDetailBottomView = {
         let myBottomView = UserDetailBottomView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 44))
+        myBottomView.delegate = self
         return myBottomView
     }()
     override func didReceiveMemoryWarning() {
@@ -86,14 +88,46 @@ class UserDetailViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+extension UserDetailViewController: UserDetailBottomViewDelegate {
+    func bottomView(clicked button: UIButton, bottomTab: BottomTab) {
+        let bottomPushVC = UserDetailBottomPushController()
+        bottomPushVC.navigationItem.title = "网页浏览"
+        if bottomTab.children.count == 0 {
+            
+            
+            bottomPushVC.url = bottomTab.value
+            navigationController?.pushViewController(bottomPushVC, animated: true)
+            
+        }else {//弹出子试图
+            let sb = UIStoryboard(name: "\(UserDetailBottomPopController.self)", bundle: nil)
+            let popoverVC = sb.instantiateViewController(withIdentifier: "\(UserDetailBottomPopController.self)") as! UserDetailBottomPopController
+            popoverVC.children = bottomTab.children
+            popoverVC.modalPresentationStyle = .custom
+            popoverVC.didSelectedChild = { [weak self] in
+               bottomPushVC.url = $0.value
+                self!.navigationController?.pushViewController(bottomPushVC, animated: true)
+                }
+            let popoverAnimatorLL = popoverAnimator()
+            // 转化 frame
+            let rect = myBottomView.convert(button.frame, to: view)
+            let popWidth = (screenWidth - CGFloat(userDetail!.bottom_tab.count + 1) * 20) / CGFloat(userDetail!.bottom_tab.count)
+            let popX = CGFloat(button.tag) * (popWidth + 20) + 20
+            let popHeight = CGFloat(bottomTab.children.count) * 40 + 25
+            popoverAnimatorLL.presentFrame = CGRect(x: popX, y: rect.origin.y - popHeight, width: screenWidth/3.0, height: popHeight)
+            popoverVC.transitioningDelegate = popoverAnimatorLL
+            present(popoverVC, animated: true, completion: {
+                
+            })
+//        self.navigationController?.pushViewController(popoverVC, animated: true)
+            
+            
+        }
+        
+        
+        
     }
-    */
-
+    
+    
 }

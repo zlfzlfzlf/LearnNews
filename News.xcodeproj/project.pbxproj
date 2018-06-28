@@ -23,6 +23,11 @@
 		6C427C0020CE665D007E1E18 /* OfficeDownCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C427BFE20CE665D007E1E18 /* OfficeDownCell.xib */; };
 		6C4C063920D368690071A1FC /* UIKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4C063820D368690071A1FC /* UIKit+Extension.swift */; };
 		6C4C063B20D368DC0071A1FC /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4C063A20D368DC0071A1FC /* Emoji.swift */; };
+		6C53179620E372C600A8AF88 /* UserDetailBottomPushController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C53179520E372C600A8AF88 /* UserDetailBottomPushController.swift */; };
+		6C53179820E3955C00A8AF88 /* UserDetailBottomPopController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C53179720E3955C00A8AF88 /* UserDetailBottomPopController.swift */; };
+		6C53179A20E3956C00A8AF88 /* UserDetailBottomPopController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C53179920E3956C00A8AF88 /* UserDetailBottomPopController.storyboard */; };
+		6C53179C20E3A49000A8AF88 /* popoverAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C53179B20E3A49000A8AF88 /* popoverAnimator.swift */; };
+		6C53179E20E3A81800A8AF88 /* MyPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C53179D20E3A81800A8AF88 /* MyPresentationController.swift */; };
 		6C65BB5020BFF3400053829B /* MoreLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C65BB4E20BFF3400053829B /* MoreLoginViewController.swift */; };
 		6C65BB5120BFF3400053829B /* MoreLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C65BB4F20BFF3400053829B /* MoreLoginViewController.xib */; };
 		6C70867B20C67ABB006B5F60 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C70867920C67ABB006B5F60 /* SettingCell.swift */; };
@@ -103,6 +108,11 @@
 		6C427BFE20CE665D007E1E18 /* OfficeDownCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfficeDownCell.xib; sourceTree = "<group>"; };
 		6C4C063820D368690071A1FC /* UIKit+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+Extension.swift"; sourceTree = "<group>"; };
 		6C4C063A20D368DC0071A1FC /* Emoji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
+		6C53179520E372C600A8AF88 /* UserDetailBottomPushController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailBottomPushController.swift; sourceTree = "<group>"; };
+		6C53179720E3955C00A8AF88 /* UserDetailBottomPopController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailBottomPopController.swift; sourceTree = "<group>"; };
+		6C53179920E3956C00A8AF88 /* UserDetailBottomPopController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserDetailBottomPopController.storyboard; sourceTree = "<group>"; };
+		6C53179B20E3A49000A8AF88 /* popoverAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popoverAnimator.swift; sourceTree = "<group>"; };
+		6C53179D20E3A81800A8AF88 /* MyPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPresentationController.swift; sourceTree = "<group>"; };
 		6C65BB4E20BFF3400053829B /* MoreLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreLoginViewController.swift; sourceTree = "<group>"; };
 		6C65BB4F20BFF3400053829B /* MoreLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreLoginViewController.xib; sourceTree = "<group>"; };
 		6C70867920C67ABB006B5F60 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
@@ -405,6 +415,10 @@
 				6C03039220CF6E030013907A /* TestDatabaseController.swift */,
 				6C36757E20D2062300D57A1C /* UserDetailViewController.swift */,
 				6C36757F20D2062300D57A1C /* UserDetailViewController.xib */,
+				6C53179520E372C600A8AF88 /* UserDetailBottomPushController.swift */,
+				6C53179720E3955C00A8AF88 /* UserDetailBottomPopController.swift */,
+				6C53179920E3956C00A8AF88 /* UserDetailBottomPopController.storyboard */,
+				6C53179D20E3A81800A8AF88 /* MyPresentationController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -415,6 +429,7 @@
 				6CCEFBC720A031D500D235C6 /* MyCellModel.swift */,
 				6CB0F65720C142030074E98B /* SettingModel.swift */,
 				6CACBE2120D3C24900B8572D /* UserDetail.swift */,
+				6C53179B20E3A49000A8AF88 /* popoverAnimator.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -626,6 +641,7 @@
 				942DCF131F6010E1001AD160 /* Assets.xcassets in Resources */,
 				6CFADFF620B409D2003CC376 /* default_theme.plist in Resources */,
 				6CFADFF720B409D2003CC376 /* night_theme.plist in Resources */,
+				6C53179A20E3956C00A8AF88 /* UserDetailBottomPopController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -721,6 +737,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C53179C20E3A49000A8AF88 /* popoverAnimator.swift in Sources */,
 				6C03039120CF6A2D0013907A /* Database.swift in Sources */,
 				6C213DDC20A17047007F2B0F /* MyFisrtSectionCell.swift in Sources */,
 				6C65BB5020BFF3400053829B /* MoreLoginViewController.swift in Sources */,
@@ -731,11 +748,13 @@
 				6C2AA24620B2C1240075E3A0 /* NoLoginHeaderView.swift in Sources */,
 				6C4C063920D368690071A1FC /* UIKit+Extension.swift in Sources */,
 				6CACBE2220D3C24900B8572D /* UserDetail.swift in Sources */,
+				6C53179620E372C600A8AF88 /* UserDetailBottomPushController.swift in Sources */,
 				6C4C063B20D368DC0071A1FC /* Emoji.swift in Sources */,
 				942DCF681F602220001AD160 /* MyNavigationController.swift in Sources */,
 				6CC3DB4420A442B200DF3663 /* UIView+Extension.swift in Sources */,
 				6C36758020D2062300D57A1C /* UserDetailViewController.swift in Sources */,
 				942DCF691F602220001AD160 /* MyTabBarController.swift in Sources */,
+				6C53179820E3955C00A8AF88 /* UserDetailBottomPopController.swift in Sources */,
 				6C36758320D2064F00D57A1C /* UserDetailHeaderView.swift in Sources */,
 				6C427BFF20CE665D007E1E18 /* OfficeDownCell.swift in Sources */,
 				6CB0F65420C1386E0074E98B /* SettingViewController.swift in Sources */,
@@ -749,6 +768,7 @@
 				6CCEFBC820A031D500D235C6 /* MyCellModel.swift in Sources */,
 				6C213DD820A1651A007F2B0F /* MyOtherCell.swift in Sources */,
 				942DCF671F602220001AD160 /* HuoshanViewController.swift in Sources */,
+				6C53179E20E3A81800A8AF88 /* MyPresentationController.swift in Sources */,
 				6C70867B20C67ABB006B5F60 /* SettingCell.swift in Sources */,
 				6CF92CA920C93FC900BC6A40 /* OfflineDownloadController.swift in Sources */,
 				942DCF6B1F602220001AD160 /* MineViewController.swift in Sources */,
