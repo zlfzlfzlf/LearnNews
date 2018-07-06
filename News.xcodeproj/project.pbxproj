@@ -15,12 +15,18 @@
 		6C213DDC20A17047007F2B0F /* MyFisrtSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C213DDA20A17047007F2B0F /* MyFisrtSectionCell.swift */; };
 		6C213DDD20A17047007F2B0F /* MyFisrtSectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C213DDB20A17047007F2B0F /* MyFisrtSectionCell.xib */; };
 		6C2AA24620B2C1240075E3A0 /* NoLoginHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2AA24520B2C1240075E3A0 /* NoLoginHeaderView.swift */; };
+		6C3131B120EA18E9002DF932 /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3131B020EA18E9002DF932 /* NavigationBarView.swift */; };
+		6C3131B320EA1903002DF932 /* NavigationBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C3131B220EA1903002DF932 /* NavigationBarView.xib */; };
 		6C36758020D2062300D57A1C /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C36757E20D2062300D57A1C /* UserDetailViewController.swift */; };
 		6C36758120D2062300D57A1C /* UserDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C36757F20D2062300D57A1C /* UserDetailViewController.xib */; };
 		6C36758320D2064F00D57A1C /* UserDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C36758220D2064F00D57A1C /* UserDetailHeaderView.swift */; };
 		6C36758520D2066300D57A1C /* UserDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C36758420D2066300D57A1C /* UserDetailHeaderView.xib */; };
 		6C427BFF20CE665D007E1E18 /* OfficeDownCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C427BFD20CE665D007E1E18 /* OfficeDownCell.swift */; };
 		6C427C0020CE665D007E1E18 /* OfficeDownCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C427BFE20CE665D007E1E18 /* OfficeDownCell.xib */; };
+		6C450EBB20EE02BF00164F19 /* RelationRecommendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C450EBA20EE02BF00164F19 /* RelationRecommendView.swift */; };
+		6C450EBF20EE02F600164F19 /* RelationRecommendView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C450EBE20EE02F600164F19 /* RelationRecommendView.xib */; };
+		6C450EC220EE032400164F19 /* RelationRecommendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C450EC020EE032400164F19 /* RelationRecommendCell.swift */; };
+		6C450EC320EE032400164F19 /* RelationRecommendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C450EC120EE032400164F19 /* RelationRecommendCell.xib */; };
 		6C4C063920D368690071A1FC /* UIKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4C063820D368690071A1FC /* UIKit+Extension.swift */; };
 		6C4C063B20D368DC0071A1FC /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4C063A20D368DC0071A1FC /* Emoji.swift */; };
 		6C53179620E372C600A8AF88 /* UserDetailBottomPushController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C53179520E372C600A8AF88 /* UserDetailBottomPushController.swift */; };
@@ -98,6 +104,8 @@
 		6C213DDB20A17047007F2B0F /* MyFisrtSectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyFisrtSectionCell.xib; sourceTree = "<group>"; };
 		6C2AA24520B2C1240075E3A0 /* NoLoginHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoLoginHeaderView.swift; sourceTree = "<group>"; };
 		6C2AA24A20B2D5E40075E3A0 /* IBAnimatable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IBAnimatable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C3131B020EA18E9002DF932 /* NavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
+		6C3131B220EA1903002DF932 /* NavigationBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationBarView.xib; sourceTree = "<group>"; };
 		6C36757E20D2062300D57A1C /* UserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
 		6C36757F20D2062300D57A1C /* UserDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDetailViewController.xib; sourceTree = "<group>"; };
 		6C36758220D2064F00D57A1C /* UserDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailHeaderView.swift; sourceTree = "<group>"; };
@@ -106,6 +114,10 @@
 		6C3F93AA20A0136B0090EC28 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C427BFD20CE665D007E1E18 /* OfficeDownCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficeDownCell.swift; sourceTree = "<group>"; };
 		6C427BFE20CE665D007E1E18 /* OfficeDownCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfficeDownCell.xib; sourceTree = "<group>"; };
+		6C450EBA20EE02BF00164F19 /* RelationRecommendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationRecommendView.swift; sourceTree = "<group>"; };
+		6C450EBE20EE02F600164F19 /* RelationRecommendView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RelationRecommendView.xib; sourceTree = "<group>"; };
+		6C450EC020EE032400164F19 /* RelationRecommendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationRecommendCell.swift; sourceTree = "<group>"; };
+		6C450EC120EE032400164F19 /* RelationRecommendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RelationRecommendCell.xib; sourceTree = "<group>"; };
 		6C4C063820D368690071A1FC /* UIKit+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+Extension.swift"; sourceTree = "<group>"; };
 		6C4C063A20D368DC0071A1FC /* Emoji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
 		6C53179520E372C600A8AF88 /* UserDetailBottomPushController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailBottomPushController.swift; sourceTree = "<group>"; };
@@ -452,6 +464,12 @@
 				6C36758220D2064F00D57A1C /* UserDetailHeaderView.swift */,
 				6C36758420D2066300D57A1C /* UserDetailHeaderView.xib */,
 				6CA91EC020E2312400BEA332 /* UserDetailBottomView.swift */,
+				6C3131B020EA18E9002DF932 /* NavigationBarView.swift */,
+				6C3131B220EA1903002DF932 /* NavigationBarView.xib */,
+				6C450EBA20EE02BF00164F19 /* RelationRecommendView.swift */,
+				6C450EBE20EE02F600164F19 /* RelationRecommendView.xib */,
+				6C450EC020EE032400164F19 /* RelationRecommendCell.swift */,
+				6C450EC120EE032400164F19 /* RelationRecommendCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -627,15 +645,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C450EC320EE032400164F19 /* RelationRecommendCell.xib in Resources */,
 				942DCF161F6010E1001AD160 /* LaunchScreen.storyboard in Resources */,
 				6CD6955C20AEC22300B7689A /* MyConcernCell.xib in Resources */,
 				6C70867E20C687B1006B5F60 /* SettingCell.xib in Resources */,
 				6C36758120D2062300D57A1C /* UserDetailViewController.xib in Resources */,
 				6C427C0020CE665D007E1E18 /* OfficeDownCell.xib in Resources */,
 				6CEE9C3C20B3BBD5003632C7 /* NoLoginHeaderView.xib in Resources */,
+				6C3131B320EA1903002DF932 /* NavigationBarView.xib in Resources */,
 				6C213DD920A1651A007F2B0F /* MyOtherCell.xib in Resources */,
 				6C36758520D2066300D57A1C /* UserDetailHeaderView.xib in Resources */,
 				6C65BB5120BFF3400053829B /* MoreLoginViewController.xib in Resources */,
+				6C450EBF20EE02F600164F19 /* RelationRecommendView.xib in Resources */,
 				6C213DDD20A17047007F2B0F /* MyFisrtSectionCell.xib in Resources */,
 				6CB0F65620C1413E0074E98B /* settingPlist.plist in Resources */,
 				942DCF131F6010E1001AD160 /* Assets.xcassets in Resources */,
@@ -740,11 +761,13 @@
 				6C53179C20E3A49000A8AF88 /* popoverAnimator.swift in Sources */,
 				6C03039120CF6A2D0013907A /* Database.swift in Sources */,
 				6C213DDC20A17047007F2B0F /* MyFisrtSectionCell.swift in Sources */,
+				6C450EBB20EE02BF00164F19 /* RelationRecommendView.swift in Sources */,
 				6C65BB5020BFF3400053829B /* MoreLoginViewController.swift in Sources */,
 				6CA91EC120E2312400BEA332 /* UserDetailBottomView.swift in Sources */,
 				6CFADFF220B40286003CC376 /* MyTheme.swift in Sources */,
 				6C04149E209C1B9B0059AB2D /* NetworkTool.swift in Sources */,
 				6CD6955B20AEC22300B7689A /* MyConcernCell.swift in Sources */,
+				6C450EC220EE032400164F19 /* RelationRecommendCell.swift in Sources */,
 				6C2AA24620B2C1240075E3A0 /* NoLoginHeaderView.swift in Sources */,
 				6C4C063920D368690071A1FC /* UIKit+Extension.swift in Sources */,
 				6CACBE2220D3C24900B8572D /* UserDetail.swift in Sources */,
@@ -771,6 +794,7 @@
 				6C53179E20E3A81800A8AF88 /* MyPresentationController.swift in Sources */,
 				6C70867B20C67ABB006B5F60 /* SettingCell.swift in Sources */,
 				6CF92CA920C93FC900BC6A40 /* OfflineDownloadController.swift in Sources */,
+				6C3131B120EA18E9002DF932 /* NavigationBarView.swift in Sources */,
 				942DCF6B1F602220001AD160 /* MineViewController.swift in Sources */,
 				6CC3DB4820A44A2B00DF3663 /* UICollection+Extension.swift in Sources */,
 				6CF5D3F5209AD91600A75A18 /* Const.swift in Sources */,

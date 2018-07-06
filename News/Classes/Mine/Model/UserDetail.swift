@@ -151,7 +151,7 @@ struct UserCard: HandyJSON {
     
     var recommend_type: Int = 0
     
-//    var user: UserCardUser = UserCardUser()
+    var user: UserCardUser = UserCardUser()
     
     var stats_place_holder: String = ""
     

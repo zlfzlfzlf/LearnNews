@@ -16,7 +16,7 @@ class popoverAnimator: NSObject, UIViewControllerAnimatedTransitioning, UIViewCo
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         let myPresentationController = MyPresentationController(presentedViewController: presented, presenting: presenting)
         myPresentationController.presentFrame = presentFrame!
-        
+        print("----\(myPresentationController.presentFrame)")
         return myPresentationController
     }
     /// 返回动画时长
@@ -48,6 +48,7 @@ class popoverAnimator: NSObject, UIViewControllerAnimatedTransitioning, UIViewCo
     // 谁来负责modol 的消失动画
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         isPresent = true
+//        print("===\(self)")
         return self
     }
     

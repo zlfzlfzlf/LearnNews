@@ -90,6 +90,12 @@ class UserDetailHeaderView: UIView, NibLoada, UIScrollViewDelegate {
         return indicatorView
     }()
     
+    private lazy var relationRecommendView: RelationRecommendView = {
+        let relationRecommendView = RelationRecommendView.loadViewFromNib()
+        return relationRecommendView
+    }()
+    
+    
     weak var privorButton = UIButton()
     /// 背景图片
     @IBOutlet weak var backgroundImageView: UIImageView!
@@ -246,7 +252,8 @@ extension UserDetailHeaderView {
                     self.layoutIfNeeded()
                 }, completion: { (_) in
                     NetworkTool.loadRelationUserRecommend(userId: (self.userdetail?.user_id)!, completionHandler: { (userCard) in
-                        
+                        self.recommendView.addSubview(self.relationRecommendView)
+                        self.relationRecommendView.userCards = userCard
                     })
                 })
             })

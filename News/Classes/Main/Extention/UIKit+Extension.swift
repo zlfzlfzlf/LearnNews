@@ -162,6 +162,8 @@ extension UICollectionView {
     
     /// 从缓存池池出队已经存在的 cell
     func ym_dequeueReusableCell<T: UICollectionViewCell>(indexPath: IndexPath) -> T where T: RegisterCellFromNib {
+        print(indexPath)
+        print(T.self)
         return dequeueReusableCell(withReuseIdentifier: T.identifier, for: indexPath) as! T
     }
     

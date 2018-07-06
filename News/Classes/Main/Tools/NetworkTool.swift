@@ -243,11 +243,12 @@ extension NetworkToolProtocol{
                       "scene": "follow",
                       "source": "follow"] as [String : Any]
         Alamofire.request(url, parameters:params).responseJSON { response in
+            print(response.request)
             guard let value = response.result.value else {
                 return
             }
             let json = JSON(value)
-            guard json["error"] == 0 else {return}
+            guard json["err_no"] == 0 else {return}
             if let user_cards = json["user_cards"].arrayObject {
                 let userArr = user_cards.flatMap({ UserCard.deserialize(from: $0 as? Dictionary)
                     
