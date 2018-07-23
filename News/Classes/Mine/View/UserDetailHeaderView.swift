@@ -9,9 +9,19 @@
 import UIKit
 import Kingfisher
 
-class UserDetailHeaderView: UIView, NibLoada, UIScrollViewDelegate {
+class UserDetailHeaderView: UIView, NibLoada {
     /// 当前选中的 topTab 的索引，点击了第几个
     var currentSelectedIndex = 0
+    //动态数据数组
+    var dongtais = [UserDetailDongtai]() {
+        didSet {
+            if bottomScrollView.subviews.count > 0 {
+                let tableview = bottomScrollView.subviews[0] as! UITableView
+                tableview.reloadData()
+                
+            }
+        }
+    }
     
     var userdetail: UserDetail? {
         didSet {
@@ -59,6 +69,7 @@ class UserDetailHeaderView: UIView, NibLoada, UIScrollViewDelegate {
             followingsCountLabel.text = userdetail!.followingsCount
             
             if userdetail!.top_tab.count > 0 {
+                ///添加按钮和tableview
                 for (index, topTab) in (userdetail?.top_tab.enumerated())!{
                     let button = UIButton(frame: CGRect(x: CGFloat(index) * topTabButtonWidth, y: 0, width: topTabButtonWidth, height: scrollView.height))
                     button.setTitle(topTab.show_name, for: .normal)
@@ -72,8 +83,33 @@ class UserDetailHeaderView: UIView, NibLoada, UIScrollViewDelegate {
                         button.isSelected = true
                         privorButton = button
                     }
+                    print(bottomScrollView.height)
+                    var tableviewHeight:CGFloat  = 0
+                    if userdetail?.bottom_tab.count == 0 {
+                        tableviewHeight = bottomScrollView.height + 44
+                    }else {
+                        tableviewHeight = bottomScrollView.height
+                    }
+                    let tableView = UITableView(frame: CGRect(x: CGFloat(index) * screenWidth, y: 0, width: screenWidth, height: tableviewHeight))
+                    tableView.ym_registerCell(cell: UserDetailDongTaiCell.self)
+                    tableView.delegate = self
+                    tableView.dataSource = self
+                    tableView.rowHeight = 130
+                    tableView.isScrollEnabled = false
+                    tableView.showsVerticalScrollIndicator = false
+                    tableView.separatorStyle = .none
+                    tableView.tableFooterView = UIView()
+                    bottomScrollView.addSubview(tableView)
+                    if index == userdetail!.top_tab.count - 1 {
+                        scrollView.contentSize = CGSize(width: button.frame.maxX, height: scrollView.height)
+                        bottomScrollView.contentSize = CGSize(width: tableView.frame.maxX, height: bottomScrollView.height)
+                    }
                 }
+               
                 scrollView.addSubview(indicatorView)
+                
+                
+                
             }else {
                 topTabHeight.constant = 0
                 topTabView.isHidden = true
@@ -92,6 +128,8 @@ class UserDetailHeaderView: UIView, NibLoada, UIScrollViewDelegate {
     
     private lazy var relationRecommendView: RelationRecommendView = {
         let relationRecommendView = RelationRecommendView.loadViewFromNib()
+        relationRecommendView.size = CGSize(width: screenWidth, height: 233)
+//        relationRecommendView.frame = CGRect(x: <#T##CGFloat#>, y: <#T##CGFloat#>, width: <#T##CGFloat#>, height: <#T##CGFloat#>)
         return relationRecommendView
     }()
     
@@ -152,7 +190,7 @@ class UserDetailHeaderView: UIView, NibLoada, UIScrollViewDelegate {
     
     
     /// 底部的 ScrollView
-//    @IBOutlet weak var bottomScrollView: UIScrollView!
+    @IBOutlet weak var bottomScrollView: UIScrollView!
 //    class func headerViewXIB() -> UserDetailHeaderView {
 //        let view = Bundle.main.loadNibNamed("\(self)", owner: nil, options: nil)?.last as! UserDetailHeaderView
 ////        view = UserDetailHeaderView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
@@ -185,14 +223,37 @@ class UserDetailHeaderView: UIView, NibLoada, UIScrollViewDelegate {
         toutiaohaoImageView.theme_image = "images.toutiaohao"
         areaButton.theme_setTitleColor("colors.black", forState: .normal)
 
+        NotificationCenter.default.addObserver(self, selector: #selector(receivedConcernButtonClicked), name: NSNotification.Name(rawValue: NavigationBarConcernButtonClicked), object: nil)
+//        SVProgressHUD.configuration()
     }
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print("123465798")
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
+   
    
 
 }
-
+extension UserDetailHeaderView: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dongtais.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.ym_dequeueReusableCell(indexPath: indexPath) as UserDetailDongTaiCell
+        cell.dongtai = dongtais[indexPath.row]
+        return cell
+    }
+     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y < 0 {
+            for subview in bottomScrollView.subviews {
+                let tableView = subview as! UITableView
+                tableView.isScrollEnabled = false
+            }
+        }
+    }
+  
+}
 extension UserDetailHeaderView {
    
    @objc func topTabButtonClicked(button: UIButton){
@@ -200,7 +261,7 @@ extension UserDetailHeaderView {
     button.isSelected = !button.isSelected
     UIView.animate(withDuration: 0.25, animations: {
         self.indicatorView.centerX = button.centerX
-//        self.bottomScrollView.contentOffset = CGPoint(x: CGFloat(button.tag) * screenWidth, y: 0)
+        self.bottomScrollView.contentOffset = CGPoint(x: CGFloat(button.tag) * screenWidth, y: 0)
     }) { (_) in
         self.privorButton = button
     }
@@ -220,6 +281,15 @@ extension UserDetailHeaderView {
         
     }
     
+    /// 接收到了关注按钮的点击
+    @objc private func receivedConcernButtonClicked(notification: Notification) {
+        let userInfo = notification.userInfo as! [String: Any]
+        let isSelected = userInfo["isSelected"] as! Bool
+        concernButton.isSelected = isSelected
+        concernButton.theme_backgroundColor = isSelected ? "colors.userDetailFollowingConcernBtnBgColor" : "colors.globalRedColor"
+        
+    }
+    
     /// 关注按钮点击
     @IBAction func concernButtonClicked(_ sender: UIButton) {
         if sender.isSelected {
@@ -232,10 +302,12 @@ extension UserDetailHeaderView {
                 self.recommendButtonTrailing.constant = 0
                 self.recommendViewHeight.constant = 0
                 UIView.animate(withDuration: 0.25, animations: {
+                    self.layoutIfNeeded()
                     ///让图片复位，防止下次点击，出现错乱
                     self.recommendButton.imageView?.transform = .identity
                     self.layoutIfNeeded()
                 })
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: UserDetailHeaderViewButtonClicked), object: self, userInfo: ["isSelected": sender.isSelected])
             })
         }else {
             NetworkTool.loadRelationFollow(userId: (userdetail?.user_id)!, completionHandler: { (_) in
@@ -256,6 +328,7 @@ extension UserDetailHeaderView {
                         self.relationRecommendView.userCards = userCard
                     })
                 })
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: UserDetailHeaderViewButtonClicked), object: self, userInfo: ["isSelected": sender.isSelected])
             })
         }
     }
@@ -276,8 +349,10 @@ extension UserDetailHeaderView {
     @IBAction func unfoldButtonClicked() {
         unfoldButton.isHidden = true
         unfoldButtonWidth.constant = 0
-      
-        descriptionLabelHeight.constant = userdetail!.descriptionHeight + 10
+        guard (userdetail != nil)  else {
+            return
+        }
+        descriptionLabelHeight.constant = (userdetail?.descriptionHeight)! + 10
         UIView.animate(withDuration: 0.25, animations: {
             self.layoutIfNeeded()
         }) { (height) in

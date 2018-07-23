@@ -11,8 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="UserDetailHeaderView" customModule="News" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="405"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="UserDetailHeaderView" customModule="News">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="696"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wallpaper_profile_night" translatesAutoresizingMaskIntoConstraints="NO" id="JgJ-7X-nsv">
@@ -22,7 +22,7 @@
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tAe-UV-TtC">
-                    <rect key="frame" x="0.0" y="102" width="320" height="303"/>
+                    <rect key="frame" x="0.0" y="102" width="320" height="254"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weixin_sdk_login_40x40_" translatesAutoresizingMaskIntoConstraints="NO" id="fAK-ga-HTi">
                             <rect key="frame" x="15" y="-36" width="72" height="72"/>
@@ -219,6 +219,7 @@
                         <constraint firstItem="SAE-dS-Aga" firstAttribute="leading" secondItem="u6d-NS-uaf" secondAttribute="leading" id="Otk-YL-vyV"/>
                         <constraint firstItem="Fge-TQ-BZ0" firstAttribute="width" secondItem="mRt-Ap-vXr" secondAttribute="width" id="OvP-Qw-Bcw"/>
                         <constraint firstItem="u6d-NS-uaf" firstAttribute="top" secondItem="tuK-6b-0rT" secondAttribute="bottom" constant="10" id="RfD-4S-5FT"/>
+                        <constraint firstAttribute="bottom" secondItem="gXA-be-wKn" secondAttribute="bottom" id="UOO-yF-ZMp"/>
                         <constraint firstItem="Rvc-nn-xGi" firstAttribute="leading" secondItem="bku-sE-TG2" secondAttribute="trailing" id="Xo6-Y2-Raw"/>
                         <constraint firstItem="5pW-pN-8PA" firstAttribute="centerY" secondItem="SAE-dS-Aga" secondAttribute="centerY" id="Xs9-Jd-0OV"/>
                         <constraint firstItem="sxI-Wd-DpX" firstAttribute="centerY" secondItem="SAE-dS-Aga" secondAttribute="centerY" id="YSE-tT-VoJ"/>
@@ -247,13 +248,19 @@
                         <constraint firstAttribute="height" constant="19" id="enf-It-2GX"/>
                     </constraints>
                 </imageView>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ux-DH-JRe">
+                    <rect key="frame" x="0.0" y="356" width="320" height="340"/>
+                </scrollView>
             </subviews>
             <constraints>
+                <constraint firstItem="7ux-DH-JRe" firstAttribute="top" secondItem="tAe-UV-TtC" secondAttribute="bottom" id="1Lt-dd-8cG"/>
                 <constraint firstAttribute="trailing" secondItem="tAe-UV-TtC" secondAttribute="trailing" id="BVQ-Dc-won"/>
                 <constraint firstItem="ZO8-vU-acF" firstAttribute="trailing" secondItem="fAK-ga-HTi" secondAttribute="trailing" id="D1o-UP-Qt7"/>
                 <constraint firstItem="ZO8-vU-acF" firstAttribute="bottom" secondItem="fAK-ga-HTi" secondAttribute="bottom" id="E45-LC-Ico"/>
+                <constraint firstAttribute="trailing" secondItem="7ux-DH-JRe" secondAttribute="trailing" id="EYq-Si-n2f"/>
                 <constraint firstAttribute="trailing" secondItem="JgJ-7X-nsv" secondAttribute="trailing" id="FKd-zL-M89"/>
-                <constraint firstAttribute="bottom" secondItem="tAe-UV-TtC" secondAttribute="bottom" id="M22-9e-Gqn"/>
+                <constraint firstItem="7ux-DH-JRe" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Kw3-8h-Aj2"/>
+                <constraint firstAttribute="bottom" secondItem="7ux-DH-JRe" secondAttribute="bottom" id="Mgk-BH-uy0"/>
                 <constraint firstItem="tAe-UV-TtC" firstAttribute="top" secondItem="JgJ-7X-nsv" secondAttribute="bottom" id="g5x-rj-dVh"/>
                 <constraint firstItem="tAe-UV-TtC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="izF-0U-fMX"/>
                 <constraint firstItem="fAK-ga-HTi" firstAttribute="top" secondItem="JgJ-7X-nsv" secondAttribute="bottom" constant="-36" id="qBC-cb-WVi"/>
@@ -269,6 +276,7 @@
                 <outlet property="backgroundImageView" destination="JgJ-7X-nsv" id="bZT-xW-xDC"/>
                 <outlet property="baseView" destination="tAe-UV-TtC" id="CUK-uD-aMz"/>
                 <outlet property="bgImageViewTop" destination="t11-WW-Hx8" id="eKR-wF-8IS"/>
+                <outlet property="bottomScrollView" destination="7ux-DH-JRe" id="rDG-1E-V9H"/>
                 <outlet property="concernButton" destination="mRt-Ap-vXr" id="zbK-5q-lfY"/>
                 <outlet property="descriptionLabel" destination="u6d-NS-uaf" id="MH7-Fi-ca1"/>
                 <outlet property="descriptionLabelHeight" destination="hQe-MN-Awq" id="ivR-kj-W6l"/>
@@ -295,7 +303,7 @@
                 <outlet property="verifiedAgencyLabelTop" destination="pOo-k5-ddf" id="uib-xF-dG8"/>
                 <outlet property="verifiedContentLabel" destination="Rvc-nn-xGi" id="Knc-ej-WjU"/>
             </connections>
-            <point key="canvasLocation" x="484" y="-1179"/>
+            <point key="canvasLocation" x="-302" y="-1543"/>
         </view>
     </objects>
     <resources>

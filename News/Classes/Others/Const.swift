@@ -24,7 +24,9 @@ let topTabButtonWidth: CGFloat = screenWidth * 0.2
 /// 关注的用户详情界面 topTab 的指示条的宽度 和 高度
 let topTabindicatorWidth: CGFloat = 40
 let topTabindicatorHeight: CGFloat = 2
-
+let MyPresentationControllerDismiss = "MyPresentationControllerDismiss"
+let NavigationBarConcernButtonClicked = "NavigationBarConcernButtonClicked"
+let UserDetailHeaderViewButtonClicked = "UserDetailHeaderViewButtonClicked"
 func RGBColorFromHex(rgbValue: Int) -> (UIColor) {
     return UIColor(red: ((CGFloat)((rgbValue & 0xFF0000) >> 16)) / 255.0,
                 green: ((CGFloat)((rgbValue & 0xFF00) >> 8)) / 255.0,blue: ((CGFloat)(rgbValue & 0xFF)) / 255.0,alpha: 1.0)

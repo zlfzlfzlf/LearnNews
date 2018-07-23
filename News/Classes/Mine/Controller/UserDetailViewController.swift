@@ -48,25 +48,37 @@ class UserDetailViewController: UIViewController {
         view.layoutIfNeeded()
         self.navigationController?.navigationItem.title = "用户详情"
         view.backgroundColor = UIColor.white
-        scrollView.contentSize = CGSize(width: screenWidth, height: 1000)
+//        scrollView.contentSize = CGSize(width: screenWidth, height: 1000)
 
         scrollView.addSubview(headerView)
+//        userId = 51025535398
         NetworkTool.loadUserDetail(userId: self.userId) { [weak self] userDetail in
-            self?.userDetail = userDetail
-            self?.headerView.userdetail = userDetail
-            if userDetail.bottom_tab.count == 0 {
-                self?.bottomViewBotom.constant = 0
-                self?.bottomViewHeight.constant = 0
-                self?.headerView.height = 979 - 34
-//                self?.view.layoutIfNeeded()
-            }else {
-                self?.headerView.height = 969
-                self?.bottomViewHeight.constant = 40;
+            //获取用户详情的动态数据
+            NetworkTool.loadUserDetailDongtaiList(userId: (self?.userId)!, maxCursor: 0, completionHandler: { (cursor, dongtais) in
+                self?.scrollView.addSubview((self?.headerView)!)
+                self?.userDetail = userDetail
+                self?.headerView.userdetail = userDetail
+                self?.navigationBar.userDetail = userDetail
+                if userDetail.bottom_tab.count == 0 {
+                    self?.bottomViewBotom.constant = 0
+                    self?.bottomViewHeight.constant = 0
+                    self?.headerView.height = 979 - 44
+                    //                self?.view.layoutIfNeeded()
+                }else {
+                    self?.headerView.height = 979
+                    self?.bottomViewHeight.constant = 40;
+                    
+                    self?.bottomView.addSubview((self?.myBottomView)!)
+                    //                self?.view.layoutIfNeeded()
+                    self?.myBottomView.bottomTabs = userDetail.bottom_tab
+                }
+//                self?.headerView.maxCursor = cursor
+                self?.headerView.dongtais = dongtais
+//                self?.headerView.currentTopTabType = .dongtai
+                self?.scrollView.contentSize = CGSize(width: screenWidth, height: (self?.headerView.height)!)
                 
-             self?.bottomView.addSubview((self?.myBottomView)!)
-//                self?.view.layoutIfNeeded()
-                self?.myBottomView.bottomTabs = userDetail.bottom_tab
-            }
+            })
+           
         }
     }
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -77,7 +89,7 @@ class UserDetailViewController: UIViewController {
         let headerView = UserDetailHeaderView.loadFromNib()
         var cgrect: CGRect = headerView.frame
         print(cgrect)
-        cgrect = CGRect(x: 0, y: 0, width: screenWidth, height: 300)
+        cgrect = CGRect(x: 0, y: 0, width: screenWidth, height: 696 + 44)
        headerView.frame = cgrect
         
         return headerView
@@ -114,8 +126,14 @@ extension UserDetailViewController: UserDetailBottomViewDelegate, UIScrollViewDe
             headerView.backgroundImageView.frame = CGRect(x: -screenWidth * (f - 1) * 0.5, y: offsetY, width: screenWidth * f, height: totalOffset)
             navigationBar.backgroundColor = UIColor(white: 1.0, alpha: 0.0)
             
-        }else {
-            var alpha: CGFloat = (offsetY + 22)  / 1000
+         }else if offsetY == 0 {
+            for subview in headerView.bottomScrollView.subviews {
+                let tableview = subview as! UITableView
+                tableview.isScrollEnabled = false
+            }
+        }
+        else {
+            var alpha: CGFloat = (offsetY + 22)  / (37 + 22)
            alpha = min(alpha, 1.0)
             navigationBar.backgroundColor = UIColor(white: 1.0, alpha: alpha)
              
@@ -129,7 +147,30 @@ extension UserDetailViewController: UserDetailBottomViewDelegate, UIScrollViewDe
                 navigationBar.moreButton.theme_setImage("images.new_morewhite_titlebar_22x22_", forState: .normal)
             }
         }
+        var alpha1: CGFloat = offsetY / 57
         
+        ///14 + 15 + 14
+        if offsetY >= 43 {
+            alpha1 = min(alpha1, 1.0)
+            navigationBar.nameLabel.isHidden = false
+            navigationBar.concernButton.isHidden = false
+            navigationBar.nameLabel.textColor = UIColor(r: 0, g: 0, b: 0, alpha: alpha1)
+            navigationBar.concernButton.alpha = alpha1
+        }else {
+            alpha1 = min(0.0, alpha1)
+            navigationBar.nameLabel.textColor = UIColor(r: 0, g: 0, b: 0, alpha: alpha1)
+            navigationBar.concernButton.alpha = alpha1
+        }
+        //设置heardview 的 toptab 黏住顶部
+        if offsetY >= (14 + headerView.topTabView.frame.minY) {
+            headerView.y = offsetY - 215
+            for subview in headerView.bottomScrollView.subviews {
+                let tableview = subview as! UITableView
+                tableview.isScrollEnabled = true
+            }
+        }else {
+            headerView.y = 0
+        }
         
     }
     

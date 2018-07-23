@@ -34,11 +34,12 @@ protocol NetworkToolProtocol {
     // MARK: 点击了关注按钮，就会出现相关推荐数据
     static func loadRelationUserRecommend(userId: Int, completionHandler: @escaping (_ concerns: [UserCard]) -> ())
 //    // MARK: 获取用户详情的动态列表数据
-//    static func loadUserDetailDongtaiList(userId: Int, maxCursor: Int, completionHandler: @escaping (_ cursor: Int,_ dongtais: [UserDetailDongtai]) -> ())
+    static func loadUserDetailDongtaiList(userId: Int, maxCursor: Int, completionHandler: @escaping (_ cursor: Int,_ dongtais: [UserDetailDongtai]) -> ())
+
 //    // MARK: 获取用户详情的文章列表数据
-//    static func loadUserDetailArticleList(userId: Int, completionHandler: @escaping (_ dongtais: [UserDetailDongtai]) -> ())
+    static func loadUserDetailArticleList(userId: Int, completionHandler: @escaping (_ dongtais: [UserDetailDongtai]) -> ())
 //    // MARK: 获取用户详情的问答列表数据
-//    static func loadUserDetailWendaList(userId: Int, cursor: String, completionHandler: @escaping (_ cursor: String,_ wendas: [UserDetailWenda]) -> ())
+    static func loadUserDetailWendaList(userId: Int, cursor: String, completionHandler: @escaping (_ cursor: String,_ wendas: [UserDetailWenda]) -> ())
 //    // MARK: 获取用户详情的动态详细内容 **暂未使用本方法**
 //    static func loadUserDetailDongTaiDetailContent(threadId: String, completionHandler: @escaping (_ detailContent: UserDetailDongtai) -> ())
 //    // MARK: 获取用户详情的动态转发或引用内容 **暂未使用本方法**
@@ -243,7 +244,7 @@ extension NetworkToolProtocol{
                       "scene": "follow",
                       "source": "follow"] as [String : Any]
         Alamofire.request(url, parameters:params).responseJSON { response in
-            print(response.request)
+            
             guard let value = response.result.value else {
                 return
             }
@@ -259,6 +260,100 @@ extension NetworkToolProtocol{
             
         }
         
+    }
+    
+    /// 获取用户详情的动态列表数据
+    /// - parameter userId: 用户id
+    /// - parameter maxCursor: 刷新时间
+    /// - parameter completionHandler: 返回动态数据
+    /// - parameter dongtais:  动态数据的数组
+    static func loadUserDetailDongtaiList(userId: Int, maxCursor: Int, completionHandler: @escaping (_ cursor: Int,_ dongtais: [UserDetailDongtai]) -> ()) {
+        
+        let url = Base_URL + "/dongtai/list/v15/?"
+        let params = ["user_id": userId,
+                      "max_cursor": maxCursor,
+                      "device_id": device_id,
+                      "iid": iid]
+        
+        Alamofire.request(url, parameters: params).responseJSON { (response) in
+            // 网络错误的提示信息
+            print(response.request)
+            guard response.result.isSuccess else { completionHandler(maxCursor, []); return }
+            if let value = response.result.value {
+                let json = JSON(value)
+                guard json["message"] == "success" else { completionHandler(maxCursor, []); return }
+                if let data = json["data"].dictionary {
+                    
+                    let max_cursor = data["max_cursor"]!.int
+                    if let datas = data["data"]?.arrayObject {
+                        completionHandler(max_cursor!, datas.flatMap({ (UserDetailDongtai.deserialize(from: $0 as? Dictionary))
+                        }))
+                    }
+
+                }
+            }
+        }
+    }
+    
+    /// 获取用户详情的文章列表数据
+    /// - parameter userId: 用户id
+    /// - parameter completionHandler: 返回文章数据
+    /// - parameter articles: 文章数据的数组
+    static func loadUserDetailArticleList(userId: Int, completionHandler: @escaping (_ articles: [UserDetailDongtai]) -> ()) {
+        
+        let url = Base_URL + "/pgc/ma/?"
+        let params = ["uid": userId,
+                      "page_type": 1,
+                      "media_id": userId,
+                      "output": "json",
+                      "is_json": 1,
+                      "from": "user_profile_app",
+                      "version": 2,
+                      "as": "A1157A8297BEED7",
+                      "cp": "59549FCDF1885E1"] as [String: Any]
+        
+        Alamofire.request(url, parameters: params).responseJSON { (response) in
+            // 网络错误的提示信息
+            guard response.result.isSuccess else { return }
+            if let value = response.result.value {
+                let json = JSON(value)
+                guard json["message"] == "success" else { return }
+                if let data = json["data"].arrayObject {
+                    completionHandler(data.flatMap({ UserDetailDongtai.deserialize(from: $0 as? Dictionary) }))
+                }
+            }
+        }
+    }
+    
+    /// 获取用户详情的问答列表数据
+    /// - parameter userId: 用户id
+    /// - parameter cursor: 加载更多数据的指示器
+    /// - parameter completionHandler: 返回动态数据
+    /// - parameter wendas:  问答数据的数组
+    static func loadUserDetailWendaList(userId: Int, cursor: String, completionHandler: @escaping (_ cursor: String,_ wendas: [UserDetailWenda]) -> ()) {
+        
+        let url = Base_URL + "/wenda/profile/wendatab/brow/?"
+        let params = ["other_id": userId,
+                      "format": "json",
+                      "device_id": device_id,
+                      "iid": iid] as [String : Any]
+        
+        Alamofire.request(url, parameters: params).responseJSON { (response) in
+            // 网络错误的提示信息
+            guard response.result.isSuccess else { completionHandler(cursor, []); return }
+            if let value = response.result.value {
+                let json = JSON(value)
+                guard json["err_no"] == 0 else { completionHandler(cursor, []); return }
+                if let answerQuestions = json["answer_question"].arrayObject {
+                    if answerQuestions.count == 0 { completionHandler(cursor, []) }
+                    else {
+                        completionHandler(json["cursor"].string!, answerQuestions.flatMap({
+                            UserDetailWenda.deserialize(from: $0 as? Dictionary)
+                        }))
+                    }
+                }
+            }
+        }
     }
   
 

@@ -56,7 +56,7 @@ class RelationRecommendViewLayout: UICollectionViewFlowLayout {
         
         itemSize = CGSize(width: 142, height: 190)
         minimumLineSpacing = 10
-      
+//        minimumInteritemSpacing = 100.0
         sectionInset = UIEdgeInsetsMake(0, 10, 0, 10)
     
     }
