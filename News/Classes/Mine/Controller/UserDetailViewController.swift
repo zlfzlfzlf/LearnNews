@@ -35,6 +35,8 @@ class UserDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(navigationBar)
+        scrollView.delaysContentTouches = false
+        scrollView.canCancelContentTouches = false
         navigationBar.goBackButtonClicked = { [weak self] in
             self?.navigationController?.popViewController(animated: true)
         }
@@ -162,14 +164,27 @@ extension UserDetailViewController: UserDetailBottomViewDelegate, UIScrollViewDe
             navigationBar.concernButton.alpha = alpha1
         }
         //设置heardview 的 toptab 黏住顶部
-        if offsetY >= (14 + headerView.topTabView.frame.minY) {
-            headerView.y = offsetY - 215
+        var letth: CGFloat = 0
+        
+        if userDetail?.area == "" {
+            letth = 50.0;
+        }
+        print(headerView.topTabView.frame.minY)
+        if offsetY >= (19 + headerView.topTabView.frame.minY) {
+            headerView.y = offsetY - 215 + letth
             for subview in headerView.bottomScrollView.subviews {
                 let tableview = subview as! UITableView
                 tableview.isScrollEnabled = true
             }
         }else {
             headerView.y = 0
+        }
+        
+        if offsetY <= 173 {
+            for subview in headerView.bottomScrollView.subviews {
+                let tableview = subview as! UITableView
+                tableview.isScrollEnabled = false
+            }
         }
         
     }

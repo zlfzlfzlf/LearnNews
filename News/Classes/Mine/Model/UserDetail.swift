@@ -298,9 +298,9 @@ struct UserDetailDongtai: HandyJSON {
 //    }
     
     /// cell 的高度
-//    var cellHeight: CGFloat {
-//        // 顶部分割线 5，头像用户名 45，底部 55， 中间部分上下间距 5
-//        var height: CGFloat = 115.0 + contentH
+    var cellHeight: CGFloat {
+        // 顶部分割线 5，头像用户名 45，底部 55， 中间部分上下间距 5
+        var height: CGFloat = 115.0 + contentH
 //        switch item_type {
 //        case .postVideoOrArticle, .postVideo, .answerQuestion, .proposeQuestion, .forwardArticle, .postContentAndVideo:   // 发布了视频和文章,提出了问题,回答了问题
 //            height += 60
@@ -309,8 +309,8 @@ struct UserDetailDongtai: HandyJSON {
 //        case .commentOrQuoteContent, .commentOrQuoteOthers:   // 引用或者评论别人的内容
 //            height += origin_thread.height
 //        }
-//        return height
-//    }
+        return height
+    }
     
     var isDongtaiDetail = false
     
@@ -328,38 +328,38 @@ struct UserDetailDongtai: HandyJSON {
 //    var collectionViewW: CGFloat {
 //        return isDongtaiDetail ? (screenWidth - 30) : Calculate.collectionViewWidth(thumb_image_list.count)
 //    }
-//
-//    var rich_content: String = ""
-//    // 用户数组
-//    var userContents: [RichContent]? {
-//        return Calculate.richContents(from: rich_content, idPattern: "(?<=uid=).*?(?=\">@)", titlePattern: "(?<=\">@).*?(?=</a>:)")
-//    }
+
+    var rich_content: String = ""
+    // 用户数组
+    var userContents: [RichContent]? {
+        return Calculate.richContents(from: rich_content, idPattern: "(?<=uid=).*?(?=\">@)", titlePattern: "(?<=\">@).*?(?=</a>:)")
+    }
 //    // 话题数组
-//    var topicContents: [RichContent]? {
-//        return Calculate.richContents(from: rich_content, idPattern: "(?<=cid=).*?(?=&enter_from=)", titlePattern: "#.*?#")
-//    }
+    var topicContents: [RichContent]? {
+        return Calculate.richContents(from: rich_content, idPattern: "(?<=cid=).*?(?=&enter_from=)", titlePattern: "#.*?#")
+    }
 //
-//    var content_unescape: String = ""
-//    var content: String = ""
-//    var detailContentH: CGFloat {
-//        return Calculate.textHeight(text: content, fontSize: 17, width: screenWidth - 30.0)
-//    }
+    var content_unescape: String = ""
+    var content: String = ""
+    var detailContentH: CGFloat {
+        return Calculate.textHeight(text: content, fontSize: 17, width: screenWidth - 30.0)
+    }
+
+    var contentH: CGFloat {
+        let height = Calculate.textHeight(text: content, fontSize: 17, width: screenWidth - 30.0)
+        return height >= 110 ? 110 : height
+    }
 //
-//    var contentH: CGFloat {
-//        let height = Calculate.textHeight(text: content, fontSize: 17, width: screenWidth - 30.0)
-//        return height >= 110 ? 110 : height
-//    }
-//
-//    /// 富文本内容高度
-//    var attributedCntentHeight: CGFloat {
-//        let height = Calculate.attributedTextHeight(text: attributedContent, width: screenWidth - 30.0)
-//        return height >= 110.0 ? 110.0 : height
-//    }
+    /// 富文本内容高度
+    var attributedCntentHeight: CGFloat {
+        let height = Calculate.attributedTextHeight(text: attributedContent, width: screenWidth - 30.0)
+        return height >= 110.0 ? 110.0 : height
+    }
     
-//    var attributedContent: NSAttributedString {
-//        let emojimanager = EmojiManager()
-//        return emojimanager.showEmoji(content: content, font: UIFont.systemFont(ofSize: 17))
-//    }
+    var attributedContent: NSAttributedString {
+        let emojimanager = EmojiManager()
+        return emojimanager.showEmoji(content: content, font: UIFont.systemFont(ofSize: 17))
+    }
     
     var cell_type: Int = 0
     var type: Int = 0
@@ -432,6 +432,7 @@ struct UserDetailDongtai: HandyJSON {
     var comment_id: Int = 0
     
     var user = DongtaiUser()
+//    var content: String = ""
 //
 //    var position = DongtaiPosition()
 //
@@ -669,10 +670,10 @@ struct UserDetailArticleImageList: HandyJSON {
 
 struct UserDetailWenda: HandyJSON {
     /// cell 的高度
-//    var cellHeight: CGFloat {
-//        // 10 + question.titleH! + 5 + 10 + 10 + 5
-//        return 40 + question.titleH + answer.content_abstract.textHeight
-//    }
+    var cellHeight: CGFloat {
+        // 10 + question.titleH! + 5 + 10 + 10 + 5
+        return 40 + question.titleH + answer.content_abstract.textHeight
+    }
     var answer: UserDetailAnswer!
     var question: UserDetailQuestion!
 }
@@ -683,10 +684,10 @@ struct UserDetailQuestion: HandyJSON {
     var nice_ans_count: Int = 0
     var tag_id: Int = 0
     var title: String = ""
-//    var titleH: CGFloat {
-//        return Calculate.textHeight(text: title, fontSize: 17, width: screenWidth - 30.0) + 5
-//    }
-//
+    var titleH: CGFloat {
+        return Calculate.textHeight(text: title, fontSize: 17, width: screenWidth - 30.0) + 5
+    }
+
     var create_time: Int = 0
     var normal_ans_count: Int = 0
 //    var fold_reason = UserDetailQuestionFoldReason()
@@ -709,10 +710,10 @@ struct UserDetailQuestionFoldReason: HandyJSON {
 struct UserDetailAnswerContentAbstract: HandyJSON {
 //    var thumb_image_list: [ThumbImage]!
     var text: String = ""
-//    var textHeight: CGFloat {
-//        let height = Calculate.textHeight(text: text, fontSize: 16, width: screenWidth - 30.0)
-//        return height >= 42 ? 42 : height
-//    }
+    var textHeight: CGFloat {
+        let height = Calculate.textHeight(text: text, fontSize: 16, width: screenWidth - 30.0)
+        return height >= 42 ? 42 : height
+    }
 //
 //    var large_image_list: [LargeImage]!
 }

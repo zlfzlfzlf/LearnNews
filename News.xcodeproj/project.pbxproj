@@ -45,6 +45,7 @@
 		6CB0F65420C1386E0074E98B /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB0F65320C1386E0074E98B /* SettingViewController.swift */; };
 		6CB0F65620C1413E0074E98B /* settingPlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6CB0F65520C1413E0074E98B /* settingPlist.plist */; };
 		6CB0F65820C142030074E98B /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB0F65720C142030074E98B /* SettingModel.swift */; };
+		6CB57BDA211AE51900BCE5F1 /* RichLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB57BD9211AE51900BCE5F1 /* RichLabel.swift */; };
 		6CC3DB4420A442B200DF3663 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC3DB4320A442B200DF3663 /* UIView+Extension.swift */; };
 		6CC3DB4620A443D500DF3663 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC3DB4520A443D500DF3663 /* UITableView+Extension.swift */; };
 		6CC3DB4820A44A2B00DF3663 /* UICollection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC3DB4720A44A2B00DF3663 /* UICollection+Extension.swift */; };
@@ -140,6 +141,7 @@
 		6CB0F65320C1386E0074E98B /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		6CB0F65520C1413E0074E98B /* settingPlist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = settingPlist.plist; sourceTree = "<group>"; };
 		6CB0F65720C142030074E98B /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
+		6CB57BD9211AE51900BCE5F1 /* RichLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RichLabel.swift; sourceTree = "<group>"; };
 		6CC3DB4320A442B200DF3663 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		6CC3DB4520A443D500DF3663 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		6CC3DB4720A44A2B00DF3663 /* UICollection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollection+Extension.swift"; sourceTree = "<group>"; };
@@ -412,6 +414,7 @@
 			isa = PBXGroup;
 			children = (
 				942DCF6F1F6024B7001AD160 /* MyTabBar.swift */,
+				6CB57BD9211AE51900BCE5F1 /* RichLabel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -816,6 +819,7 @@
 				6CF5D3F5209AD91600A75A18 /* Const.swift in Sources */,
 				6CF5D3F8209ADC5E00A75A18 /* UIColor+Extension.swift in Sources */,
 				6CC3DB4620A443D500DF3663 /* UITableView+Extension.swift in Sources */,
+				6CB57BDA211AE51900BCE5F1 /* RichLabel.swift in Sources */,
 				6CB0F65820C142030074E98B /* SettingModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

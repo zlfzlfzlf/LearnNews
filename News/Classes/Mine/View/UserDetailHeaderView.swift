@@ -94,10 +94,13 @@ class UserDetailHeaderView: UIView, NibLoada {
                     tableView.ym_registerCell(cell: UserDetailDongTaiCell.self)
                     tableView.delegate = self
                     tableView.dataSource = self
+                    tableView.delaysContentTouches = false
+                    
                     tableView.rowHeight = 130
                     tableView.isScrollEnabled = false
                     tableView.showsVerticalScrollIndicator = false
                     tableView.separatorStyle = .none
+                    tableView.bounces = false
                     tableView.tableFooterView = UIView()
                     bottomScrollView.addSubview(tableView)
                     if index == userdetail!.top_tab.count - 1 {
@@ -200,6 +203,7 @@ class UserDetailHeaderView: UIView, NibLoada {
     override func awakeFromNib() {
         self.avatarImageView.layer.cornerRadius = 36
         self.avatarImageView.layer.masksToBounds = true
+        bottomScrollView.showsVerticalScrollIndicator = false
 //        print(userdetail?.bg_img_url)
         concernButton.setTitle("关注", for: .normal)
         concernButton.setTitle("已关注", for: .selected)
@@ -244,10 +248,22 @@ extension UserDetailHeaderView: UITableViewDelegate, UITableViewDataSource {
         cell.dongtai = dongtais[indexPath.row]
         return cell
     }
+    /// 设置 cell 的高度
+    private func cellHeight(with dongtai: UserDetailDongtai) -> CGFloat {
+        return dongtai.cellHeight
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+       return cellHeight(with: dongtais[indexPath.row])
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+    }
      func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.y < 0 {
+        print("scrollView.contentOffset.y=\(scrollView.contentOffset.y)")
+        if scrollView.contentOffset.y <= 0 {
             for subview in bottomScrollView.subviews {
                 let tableView = subview as! UITableView
+                print("scrollView.contentOffset.y=====\(scrollView.contentOffset.y)")
                 tableView.isScrollEnabled = false
             }
         }

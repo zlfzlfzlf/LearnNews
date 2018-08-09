@@ -41,6 +41,7 @@ class NoLoginHeaderView: UIView {
     }
     override func awakeFromNib() {
         super.awakeFromNib()
+    
 //        ThemeManager.setTheme(plistName: "default_theme", path: .mainBundle)
         dayOrNightButton.isSelected = UserDefaults.standard.bool(forKey: isNight)
         let effectX = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)

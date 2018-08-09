@@ -9,12 +9,12 @@
 import UIKit
 
 protocol Calculatable {
-    // MARK: 计算宽度
-    static func collectionViewWidth(_ count: Int) -> CGFloat
-    // MARK: 计算高度
-    static func collectionViewHeight(_ count: Int) -> CGFloat
-    // MARK: 计算 collectionViewCell 的大小
-    static func collectionViewCellSize(_ count: Int) -> CGSize
+//    // MARK: 计算宽度
+//    static func collectionViewWidth(_ count: Int) -> CGFloat
+//    // MARK: 计算高度
+//    static func collectionViewHeight(_ count: Int) -> CGFloat
+//    // MARK: 计算 collectionViewCell 的大小
+//    static func collectionViewCellSize(_ count: Int) -> CGSize
     // MARK: 计算富文本的高度
     static func attributedTextHeight(text: NSAttributedString, width: CGFloat) -> CGFloat
     // MARK: 计算文本的高度
@@ -140,4 +140,5 @@ extension Calculatable {
         return text.boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: height), options: .usesLineFragmentOrigin, attributes: [.font: UIFont.systemFont(ofSize: fontSize)], context: nil).size.height
     }
 }
-
+struct Calculate: Calculatable {
+}
